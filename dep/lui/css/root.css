@@ -1,0 +1,17 @@
+/* 设置root变量 */
+
+:root{
+    --size: .16rem;
+    --input-height: .4rem;
+    --input-border-color: #ced3da;
+    --input-border:solid 1px var(--input-border-color);
+    --input-active-color: #3981e3;
+    --input-color:#485778;
+    --select-bg:#fff;
+    --blue: #3981e3;
+    --green: #88c132;
+    --orange: #ff6d4b;
+    --scroll-bar: #bbb;
+    --popup-bg: #fff;
+    --popup-color: #5e6c84;
+}

@@ -1,0 +1,450 @@
+@import url("root.css");
+@import url("reset.css");
+@import url("loading.css");
+@import url("//at.alicdn.com/t/font_1984463_uabjnpc1gao.css");
+/* lui基本样式 */
+/* flex */
+.flex{
+    display: flex;
+}
+.flex.column{
+    flex-direction: column;
+}
+.flex.center{
+    align-items: center;
+    justify-content: center;
+}
+.f1{
+    flex: 1;
+    overflow: hidden;
+}
+
+/* icon */
+.iconfont{
+    font-size: .16rem;
+}
+
+/* vue 过度动态 */
+.fade-enter{    
+    transform: translateY(.2rem);
+    opacity: 0.1;
+}
+.fade-enter-active{
+    transition:  all .7s;
+}
+.fade-leave-active{
+    opacity: 0.05;
+    transform: translateY(.2rem);
+    transition:  all .6s;
+}
+
+
+/* column 1-12 */
+.col1{width: 8.33%;}
+.col2{width: 16.66%;}
+.col3{width: 25%;}
+.col4{width: 33.33%;}
+.col5{width: 41.67%;}
+.col6{width: 50%;}
+.col7{width: 58.33%;}
+.col8{width: 66.67%;}
+.col9{width: 75%;}
+.col10{width: 83.33%;}
+.col11{width: 91.67%;}
+
+/* toe text-overflow-ellipsis  文字超出省略 */
+.toe{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* scroll ---- start */
+._scroll{position: relative;overflow: hidden;height: 100%;pointer-events: auto;}
+
+._scroll>._con{height: 100%;overflow: hidden;}
+
+._scroll>._bar{position: absolute;}
+
+._scroll>._bar._v{width: .08rem;height: 1rem;right: 0;background: var(--scroll-bar);top: 0;border-radius: .04rem;}
+
+.user-unsel{user-select:none;}
+
+.sel-complete ._scroll>._con{display: block;padding: 2px;overflow: hidden;max-height: 166px;}
+/* scroll ---- end */
+
+
+/* a, button */
+button:active {
+    transform: translateY(2px);
+}
+.btn{
+    min-width: 1rem ;
+	height: var(--input-height);
+	letter-spacing: 1px;
+	color: var(--input-color);
+	position: relative;
+    font-size: 16px;
+    border: var(--input-border);
+    border-radius: 3px;
+    background: #fff;
+    cursor: pointer;
+}
+.btn.min{
+    min-width: .6rem;
+    width: .6rem;
+}
+.mr1{
+    margin-right: .1rem;
+}
+.mr2{
+    margin-right: .2rem;
+}
+
+.btn.blue{
+    border: none;
+    background: var(--blue);
+    color: #fff;
+}
+.btn.green{
+    border: none;
+    background: var(--green);
+    color: #fff;
+}
+.btn.yellow{
+    border: none;
+    background: var(--yellow);
+    color: #fff;
+}
+.btn.orange{
+    border: none;
+    background: var(--orange);
+    color: #fff;
+}
+.btn[disabled]{
+	border-color: var(--input-color);
+    color: #aaa;
+    background: #ccc;
+}
+.btn:hover{
+    box-shadow: 0 0 4px 2px rgba(0,0,0,0.12), 0 17px 50px 0 rgba(0,0,0,0.1);
+}
+.btn-icon{
+    background: transparent;
+    border: solid 1px #424254;
+    border-radius: 3px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    padding: 0 22px;
+}
+.btn-icon .icon{
+    margin-right: 10px;
+}
+
+.btn>input{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    height: unset;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.a-btn{
+    padding: 0 8px;
+    margin: 0 4px;
+}
+.a-btn.orange{
+    color: var(--orange);
+}
+.a-btn.green{
+    color: var(--green);
+}
+.a-btn.blue{
+    color: var(--blue);
+}
+
+/* search */
+.search{
+    position: relative;
+}
+.search .icon-search{
+    position: absolute;
+    font-size: 22px;
+    color: #68758b;
+    right: 0.08rem;
+    top: 8px;
+}
+.search input{
+    padding-right: .4rem;
+}
+.search.min .icon-search{
+    font-size: 20px;
+    top: 6px;
+}
+.search.min input{
+    height: 36px;
+    padding-right: .36px;    
+}
+/* select */
+.sel-input:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: var(--input-height);
+    border-left: var(--input-border);
+}
+.sel-input input{
+    padding-right: .52rem;
+}
+
+/* check radio  */
+a.checkbox, a.radio{
+    display: flex;
+    width: .22rem;
+    height: .22rem;    
+    position: relative;
+    padding: .02rem;
+    color: var(--input-border-color);
+    margin-right: .06rem;
+}
+a.checkbox:before,a.radio:before{
+    content: "";
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;    
+    border: solid 1px;
+    border-radius: .02rem;
+}
+a.checkbox:after{
+    content: "";       
+    position: absolute;   
+    width: 0;
+    height: 0;
+    transition: height .2s, width .15s .1s; 
+}
+a.checkbox.checked, a.checkbox.in, a.radio.checked{
+    color: var(--input-active-color);
+}
+a.checkbox.checked:after{
+    transform-origin: center center;
+    left: .06rem;
+    top: .06rem;
+    width: .07rem;
+    height: .04rem;
+    border-bottom: solid .015rem;
+    border-left: solid .015rem;
+    transform: rotate(-45deg);    
+}
+a.checkbox.checkin:after{
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: .06rem;
+    height: .06rem;
+    background: var(--input-active-color);   
+}
+
+a.radio:before{
+    border-radius: .1rem;
+}
+a.radio:after{
+    content: "";       
+    position: absolute;   
+    width: 0;
+    height: 0;
+    background: var(--input-active-color);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    transition: all .2s; 
+    border-radius: .04rem;
+}
+a.radio.checked:after{     
+    width: .08rem;
+    height: .08rem;
+    transition: all .2s; 
+}
+
+/* input */
+input{
+    border: var(--input-border);
+    height: var(--input-height);
+    color: var(--input-color);
+    width: 100%;    
+}
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */ 
+    color: var(--placeholder-color);
+}
+::-moz-placeholder { /* Firefox 19+ */  
+    color: var(--placeholder-color);
+}
+:-ms-input-placeholder { /* IE 10+ */ 
+    color: var(--placeholder-color);
+}
+:-moz-placeholder { /* Firefox 18- */ 
+    color: var(--placeholder-color);
+}
+
+/* lui-table */
+.lui-table .tr{
+    line-height: 48px;
+    border-bottom: var(--tbody-border);
+    margin: 0 .2rem;
+    display: flex;
+}
+.lui-table>.thead .tr{
+    background: var(--thead-bg);
+    border-bottom: var(--thead-border);
+}
+.lui-table .tr>span{
+    padding: 0 .4rem 0 .14rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;   
+}
+.lui-table.flex-auto .tr>span{
+    flex: 1;
+}
+.lui-table .tr.tr-empty{
+    border-bottom: none;
+}
+.lui-table .tr.tr-empty span{
+    width: 100%;
+    text-align: center;
+}
+/* table-tr 更新动画 */
+.table-tr-enter{
+    opacity: 0;    
+    transform: translateY(-50px);
+}
+.table-tr-enter-active{
+    transition: opacity 1.5s, transform 1s;
+}
+.table-tr-move{
+    transition: opacity 0.5s, transform 1.5s;
+}
+
+/* box-shadow */
+.shadow{
+	position: relative;
+	box-shadow: 0px 1px 4px rgba(0,0,0,0.3),
+				0px 0px 20px rgba(0,0,0,0.1) inset;
+}
+.shadow::before,
+.shadow::after {
+   content:"";
+   position:absolute;
+   z-index:-1;
+   bottom:15px;
+   left:10px;
+   width:50%;
+   height:20%;
+   box-shadow:0 15px 10px rgba(0, 0, 0, 0.7);
+   transform:rotate(-3deg);
+}
+.shadow::after{
+   right:10px;
+   left:auto;
+   transform:rotate(3deg);
+ }
+
+ /* 操作提升 */
+.hit{
+    position: absolute;    
+    height: 42px;
+    /* line-height: 42px; */
+    left: 50%;
+    top: 40%;
+    text-align: center;
+    margin-left: -66px;
+    background: rgba(1,43,55,0.8);
+    opacity: 0;
+    transition: all 0.5s;
+    border-radius: 4px;
+    z-index: 99;
+    color: #fff;
+    padding: 10px 20px;
+}
+.hit.show{
+   opacity: 1;
+}
+
+ /* popup */
+ .popup, .alert{
+    position: absolute;
+    background: var(--popup-bg);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin-top: -30px;
+    border-radius: 3px;
+    color: var(--popup-color);
+    z-index: 900;
+}
+.popup.show{
+    z-index: 1100;
+}
+.pp-title, .alert-title{
+    height: 58px;
+    border-bottom: solid 2px #eff0f2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;    
+}
+ .pp-body>._scroll>._con{
+    max-height: 68vh;
+    height: unset;
+}
+.pp-body ._scroll>._bar._v{
+    right: 3px;
+}
+.layer-enter{
+    transform:scale(0.5);
+    opacity: 0.1;
+}
+.layer-enter-active{
+    transition:  all .4s;    
+}
+.layer-leave-active{
+    opacity: 0;
+    top: 50%;
+    transition:  all .4s; 
+}
+.popuping-enter{
+    top: 40%;
+    opacity: 0.1;
+}
+.popuping-enter-active{
+    transition:  all .6s;    
+}
+.popuping-leave-active{
+    opacity: 0;
+    top: 60%;
+    transition:  all .5s; 
+}
+
+/* l-r-check */
+.l-r-check ._con{
+    max-height: 60vh;
+    min-height: 36vh;
+}
+
+/* vue 过度动态 fade */
+.fade-enter{    
+    transform: translateY(20px);
+    opacity: 0.1;
+}
+.fade-enter-active{
+    transition:  all .7s;
+}
+.fade-leave-active{
+    opacity: 0.05;
+    transform: translateY(20px);
+    transition:  all .6s;
+}

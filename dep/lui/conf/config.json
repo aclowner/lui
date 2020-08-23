@@ -1,0 +1,10 @@
+{
+    "name":"vlang",
+    "debug": true,
+    "path":{
+        "http":"http://ms.jsvrt.com:8083/",
+        "api":"wl_projectMa_api/api/service",
+        "file":"projectFile/",
+        "fileApi":"wl_projectMa_api/fileApi/file/common"
+    }
+}

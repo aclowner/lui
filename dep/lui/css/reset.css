@@ -1,0 +1,31 @@
+/* reset ---- start */
+html,body{height: 100%;}
+
+body, dl, dd, h1, h2, h3, h4, h5, h6, p, form,ol, li, ul{margin:0;padding:0;}
+
+body{font-family: "微软雅黑","Arial","Microsoft YaHei";font-size: var(--size);}
+   
+ol,li,ul{list-style: none;}
+
+a{cursor:pointer;text-decoration: none;	color: unset;}
+
+input , textarea{outline:none;vertical-align: top;background: transparent;padding: 0 .12rem;font-size: var(--size);border-radius: 3px;}
+
+input::-ms-clear, ::-ms-reveal{	display: none;}
+
+textarea{resize: none;}
+
+button{border: none;}
+
+table{border-collapse: collapse;font-size: var(--size);padding:0;margin:0;width: 100%;}
+
+table td , table th{padding:0;}
+
+img{border: none;}
+
+svg{height: 100%;width: 100%;}
+
+*{box-sizing: border-box;}
+
+*:focus{outline: none;}
+/* reset ---- end */
