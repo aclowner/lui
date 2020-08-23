@@ -1,0 +1,20 @@
+.all{
+    height: 100%;
+    width: 100%;
+    background: #eee;
+}
+.top{
+    height: 7.4vh;
+    background: #fff;
+    margin-bottom: 2px;
+}
+.body{
+    flex: 1;
+}
+.left{
+    width: 16vw;
+    background: #fff;
+}
+.right{
+    flex: 1;
+}
