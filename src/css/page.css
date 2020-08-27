@@ -1,20 +1,86 @@
+body{
+    color: #304455;
+    background: #fff;
+}
 .all{
     height: 100%;
     width: 100%;
-    background: #eee;
 }
 .top{
-    height: 7.4vh;
-    background: #fff;
-    margin-bottom: 2px;
+    height: 7.4vh;   
+    align-items: center;
+    border-bottom: solid 2px #eee;
 }
 .body{
     flex: 1;
+    overflow: hidden;
 }
 .left{
-    width: 16vw;
-    background: #fff;
+    width: 15vw;
+    border-right: solid 2px #eee;
 }
 .right{
     flex: 1;
+}
+
+/* top */
+.logo{
+    width: 15vw;
+    height: 100%;
+    align-items: center;
+    padding-left: 2vw;
+}
+
+.img-logo{
+    height: 50%;    
+}
+.span-logo{
+    color: var(--active-color);
+    font-size: .24rem;
+    margin-left: 1.5vw;
+    letter-spacing: 1px;
+}
+
+/* left */
+.ul-menu{
+    padding: .15rem 0 .3rem;
+}
+.a-menu{
+    display: block;
+    padding-left: .36rem;
+}
+.a-menu.at1{
+    font-size: .18rem;
+    font-weight: 700;
+    padding-top: .15rem;
+    padding-bottom: .06rem;
+    line-height: 2;
+    color: #273849;
+}
+.a-menu.at2{
+    padding-top: .06rem;
+    padding-bottom: .06rem;
+    margin-left: .12rem;
+    color: #304455;
+}
+.a-menu.at2.active{
+    color: #42b983;
+    font-weight: 600;
+}
+
+
+/* page */
+.page{
+    width: 860px;
+    margin: 0 auto;
+}
+.page h3{
+    line-height: .6rem;
+    padding-top: .2rem;
+    margin: .3rem 0;
+}
+.page h3>a:before{
+    content: "#";
+    color: #42b983;
+    margin-right: 6px;
 }

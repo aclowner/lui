@@ -2,6 +2,7 @@
 
 :root{
     --size: .16rem;
+    --active-color:#4fc08d;
     --input-height: .4rem;
     --input-border-color: #ced3da;
     --input-border:solid 1px var(--input-border-color);
@@ -15,3 +16,4 @@
     --popup-bg: #fff;
     --popup-color: #5e6c84;
 }
+

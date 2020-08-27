@@ -1,0 +1,37 @@
+[
+    {"id":1,"name":"开始","type":1},
+    {"id":11,"name":"介绍","type":2,"page":"/"},
+
+    {"id":12,"name":"按钮","type":1},
+    {"id":21,"name":"button","type":2,"page":"/buttonPage"},
+
+    {"id":3,"name":"表单控件","type":1},
+    {"id":31,"name":"输入框","type":2,"page":"/check"},
+    {"id":32,"name":"勾选切换","type":2,"page":"/check"},
+    {"id":33,"name":"下拉选择","type":2,"page":"/select"},
+    {"id":34,"name":"时间日期选择","type":2,"page":"/date"},
+    {"id":35,"name":"文件选择","type":2,"page":"/file"},
+
+    {"id":4,"name":"列表","type":1},
+    {"id":41,"name":"分页列表","type":2,"page":"/table"},
+    {"id":42,"name":"不分页列表","type":2,"page":"/table"},
+
+    {"id":5,"name":"列表选择","type":1},
+    {"id":51,"name":"单层选择","type":2,"page":"/table"},
+    {"id":52,"name":"树状选择","type":2,"page":"/table"},
+
+    {"id":6,"name":"弹出层","type":1},
+    {"id":61,"name":"弹出窗口","type":2,"page":"/table"},
+    {"id":62,"name":"弹出提示","type":2,"page":"/table"},
+    {"id":63,"name":"弹出文件查看","type":2,"page":"/table"},
+
+    {"id":7,"name":"Lui Api","type":1},
+    {"id":71,"name":"ajax请求","type":2,"page":"/apiRequest"},
+    {"id":72,"name":"日期时间","type":2,"page":"/apiDate"},
+
+    {"id":8,"name":"原型扩展","type":1,"page":"/apiPrototype"},
+    {"id":81,"name":"Int","type":2,"page":"/apiPrototype"},
+    {"id":82,"name":"String","type":2,"page":"/apiPrototype"},
+    {"id":83,"name":"Object","type":2,"page":"/apiPrototype"},
+    {"id":83,"name":"Array","type":2,"page":"/apiPrototype"}
+]

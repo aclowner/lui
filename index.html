@@ -8,33 +8,51 @@
     <link rel="stylesheet" href="dep/lui/css/lui.css">
     <link rel="stylesheet" href="src/css/page.css">
 
+    <script src="dep/lui/js/lui-rem.js"></script>
     <script src="dep/vue/vue.js"></script>
     <script src="dep/vue/vue-router.min.js"></script>
 
 </head>
 <body>
 
-<div class="all flex column">
+    <div class="all flex column" id="vue">
 
-    <div class="top">
+        <div class="top flex">
+            <div class="logo flex">
+                <img class="img-logo" src="src/asset/img/logo.png" alt="">
+                <span class="span-logo">LAZY UI</span>
+            </div>
+        </div>
 
-    </div>
+        <div class="body flex">
 
-    <div class="body flex">
+            <div class="left">
+                <scroll>                
+                    <ul class="ul-menu">                    
+                        <li v-for="a in menus">
+                            <span v-if="a.type==1" :class="['a-menu','at1']">{{a.name}}</span>
+                            <router-link v-else :to="a.page" exact-active-class="active" :class="['a-menu','at2']" @click="active=a.id">
+                                {{a.name}}
+                            </router-link>                        
+                        </li>
+                    </ul>
+                </scroll>
+            </div>
 
-        <div class="left">
+            <div class="right">
+                <scroll>
+                    <transition mode="out-in" name="fade">
+                        <router-view :route="route"></router-view>
+                    </transition>
+                </scroll>
+            </div>
 
         </div>
 
-        <div class="right">
-
-            <h1>vue ui component for web</h1>
-
-        </div>
-
     </div>
 
-</div>
+    <script src="dep/namespace/pako.js"></script>
+    <script src="dep/namespace/Namespace_2.1.8.js" defer="defer" start="src/js/start" ></script>
 
 </body>
 </html>
