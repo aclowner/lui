@@ -3,10 +3,10 @@
     {"id":11,"name":"介绍","type":2,"page":"/"},
 
     {"id":12,"name":"按钮","type":1},
-    {"id":21,"name":"button","type":2,"page":"/buttonPage"},
+    {"id":21,"name":"button","type":2,"page":"/button"},
 
     {"id":3,"name":"表单控件","type":1},
-    {"id":31,"name":"输入框","type":2,"page":"/check"},
+    {"id":31,"name":"输入框","type":2,"page":"/input"},
     {"id":32,"name":"勾选切换","type":2,"page":"/check"},
     {"id":33,"name":"下拉选择","type":2,"page":"/select"},
     {"id":34,"name":"时间日期选择","type":2,"page":"/date"},

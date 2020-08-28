@@ -1,9 +1,14 @@
 
 lui = NS.Import("../../dep/lui/js/lui");
 
-const menus = NS.Load("../asset/json/menu.json");
+NS.Component([
+    "../component/luiCheckbox",
+    "../component/luiCheckboxGroup"
+]);
 
-let routes = NS.Import("routes");
+const menus = NS.Load("../asset/json/menu.json");
+const routes = NS.Import("routes");
+
 function start(){
     let router = new VueRouter({
         routes:new routes()

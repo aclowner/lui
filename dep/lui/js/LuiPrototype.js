@@ -146,3 +146,11 @@ Array.prototype.groupBy = function(name="name"){
     }    
     return re;
 }
+
+Array.prototype.toggleValue = function(value){
+    let index = this.indexOf(value);
+    if(index<0)
+        this.push(value);
+    else
+        this.splice(index,1);
+}

@@ -3,13 +3,13 @@ html,body{height: 100%;}
 
 body, dl, dd, h1, h2, h3, h4, h5, h6, p, form,ol, li, ul{margin:0;padding:0;}
 
-body{font-family: "微软雅黑","Arial","Microsoft YaHei";font-size: var(--size);}
+body{font-family: var(--font-family);font-size: var(--size);}
    
 ol,li,ul{list-style: none;}
 
 a{cursor:pointer;text-decoration: none;	color: unset;}
 
-input , textarea{outline:none;vertical-align: top;background: transparent;padding: 0 .12rem;font-size: var(--size);border-radius: 3px;}
+input , textarea{font-family: var(--font-family);font-size: var(--size);outline:none;vertical-align: top;background: transparent;padding: 0 .12rem;border-radius: 3px;}
 
 input::-ms-clear, ::-ms-reveal{	display: none;}
 

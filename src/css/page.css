@@ -73,14 +73,64 @@ body{
 .page{
     width: 860px;
     margin: 0 auto;
+    padding-bottom: .3rem;
 }
 .page h3{
     line-height: .6rem;
-    padding-top: .2rem;
-    margin: .3rem 0;
+    padding-top: .1rem;
+    margin: .2rem 0;
 }
 .page h3>a:before{
     content: "#";
     color: #42b983;
     margin-right: 6px;
+}
+.content ul{
+    margin-left: .4rem;
+}
+.content li{
+    list-style: disc;
+    margin-bottom: .2rem;
+}
+.content li p{    
+    padding-top: .2rem;
+    display: flex;
+}
+code, pre, .html-code {
+    font-family: "Roboto Mono", Monaco, courier, monospace;
+    font-size: 0.16rem;
+    background-color: #f8f8f8;
+    -webkit-font-smoothing: initial;
+    -moz-osx-font-smoothing: initial;
+}
+code{
+    padding: 3px 5px;
+    margin: 0 2px;
+    border-radius: 2px;
+    white-space: nowrap;
+}
+pre code {
+    overflow-x: auto;
+    color: #525252;
+    white-space: pre;
+    padding: .1rem .2rem;
+    line-height: .3rem;
+    display: block;
+}
+.html-code{
+    width: 100%;
+    color: #525252;
+    padding: .1rem .2rem;
+    line-height: 2;
+}
+span.remark{
+    display: block;
+    margin-top: .2rem;
+    padding: .05rem .3rem;
+    line-height: 1.6;
+    background-color: #eee;
+}
+span.remark:before{
+    content: "注：";
+    color: tomato;
 }
