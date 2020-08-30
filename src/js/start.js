@@ -3,7 +3,10 @@ lui = NS.Import("../../dep/lui/js/lui");
 
 NS.Component([
     "../component/luiCheckbox",
-    "../component/luiCheckboxGroup"
+    "../component/luiCheckboxGroup",
+    "../component/luiRadioGroup",
+    "../component/luiSearch",
+    "../component/luiTagInput"
 ]);
 
 const menus = NS.Load("../asset/json/menu.json");

@@ -231,27 +231,56 @@ textarea{
 }
 
 /* search */
-.search{
+.lui-search{
     position: relative;
+    width: 100%;
 }
-.search .icon-search{
+.lui-search .icon-search{
     position: absolute;
     font-size: 22px;
     color: #68758b;
     right: 0.08rem;
-    top: 8px;
+    top: .08rem;
 }
-.search input{
+.lui-search input{
     padding-right: .4rem;
 }
-.search.min .icon-search{
+.lui-search.min .icon-search{
     font-size: 20px;
     top: 6px;
 }
-.search.min input{
+.lui-search.min input{
     height: 36px;
     padding-right: .36px;    
 }
+
+
+/* 带标签输入框 */
+.lui-tag-input{
+    width: 100%;
+    height: var(--input-height);
+    display: flex;
+    border: var(--input-border);
+    border-radius: 3px;
+    align-items: stretch;    
+}
+.lui-tag-input>span{
+    display: flex;
+    padding: 0 .12rem;    
+    align-items: center;
+}
+.lui-tag-input .before{
+    background: linear-gradient(to right, var(--input-border-color), #dfdfdf);
+}
+.lui-tag-input .after{
+    background: linear-gradient(to left, var(--input-border-color), #dfdfdf);
+}
+.lui-tag-input>input{
+    flex: 1;
+    border: none;
+    height: 100%;
+}
+
 /* select */
 .sel-input:before{
     content: "";
@@ -312,7 +341,7 @@ a.checkbox.checkin:after{
     height: .06rem;
     background: var(--input-active-color);   
 }
-a.checkbox>span{
+a.checkbox>span, a.radio>span{
     color: var(--input-color);
     margin-left: .06rem;
 }
@@ -326,8 +355,8 @@ a.radio:after{
     width: 0;
     height: 0;
     background: var(--input-active-color);
-    left: 50%;
-    top: 50%;
+    left: .11rem;
+    top: .11rem;
     transform: translate(-50%,-50%);
     transition: all .2s; 
     border-radius: .04rem;
@@ -338,7 +367,7 @@ a.radio.checked:after{
     transition: all .2s; 
 }
 
-.checkbox-group .checkbox{
+.checkbox-group .checkbox, .radio-group .radio{
     margin-right: .4rem;
 }
 

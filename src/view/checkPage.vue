@@ -39,7 +39,7 @@
                 <pre>
                 <code class="js">list     传入checkbox选项数组，支持 [[value,name]...]、 [name1,name2...]两种数据
 v-model  双向绑定数据，为","拼接字符串，分割后匹配是否选中，第一种数据绑定值为value，第二种数据绑定值为索引
-index    第二种数据该参数有效，默认为0，用于双向绑定数据的索引相加值
+index    int类型，第二种数据该参数有效，默认为0，用于双向绑定数据的索引相加值
 </code>
 </pre>                
             </p>
@@ -47,6 +47,31 @@ index    第二种数据该参数有效，默认为0，用于双向绑定数据�
     </ul>
 
     <h3><a >radio</a></h3>
+    <ul>
+        <li>
+            <p>radio-group</p>
+            <p>
+                <lui-radio-group :list="['option1','option2','option3']" :index="1" v-model="radioVal1"></lui-radio-group>
+            </p>
+            <p>
+                <input type="text" :value="radioVal1">
+            </p>
+            <p>
+                <lui-radio-group :list="[['option1','option1'],['option2','option2'],['option3','option3']]"  v-model="radioVal2"></lui-radio-group>
+            </p>
+            <p>
+                <input type="text" :value="radioVal2">
+            </p>
+            <p>
+                <pre>
+                <code class="js">list     传入radio选项数组，支持 [[value,name]...]、 [name1,name2...]两种数据
+v-model  双向绑定数据选中的数据值，第一种数据绑定值为value，第二种数据绑定值为索引
+index    int类型，第二种数据该参数有效，默认为0，用于双向绑定数据的索引相加值
+</code>
+</pre>                
+            </p>
+        </li>
+    </ul>
 </div>
 </template>
 
@@ -56,8 +81,10 @@ function checkPage(){
         data(){
             return {
                 ck1:1,
-                da:"",
+                da:"0,2",
                 da2:"",
+                radioVal1:"",
+                radioVal2:"option2"
             }            
         },
         computed:{

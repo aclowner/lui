@@ -19,7 +19,27 @@
             </p>
         </li>
     </ul>
-
+    <h3><a >修饰输入</a></h3>
+    <ul>
+        <li>
+            <p>搜索</p>
+            <p>
+                <lui-search></lui-search>
+            </p>
+        </li>
+        <li>
+            <p>前/后标签</p>
+            <p>
+                <lui-tag-input before="前面内容"></lui-tag-input>
+            </p>
+            <p>
+                <lui-tag-input after="后面内容"></lui-tag-input>
+            </p>
+            <p>
+                <lui-tag-input before="电子邮件" after="@qq.com"></lui-tag-input>
+            </p>
+        </li>
+    </ul>
 </div>
 </template>
 
