@@ -282,17 +282,7 @@ textarea{
 }
 
 /* select */
-.sel-input:before{
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: var(--input-height);
-    border-left: var(--input-border);
-}
-.sel-input input{
-    padding-right: .52rem;
-}
+
 
 /* check radio  */
 a.checkbox, a.radio{

@@ -85,7 +85,7 @@ body{
     color: #42b983;
     margin-right: 6px;
 }
-.content ul{
+.content h3+ul{
     margin-left: .4rem;
 }
 .content li{

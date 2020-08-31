@@ -6,7 +6,8 @@ NS.Component([
     "../component/luiCheckboxGroup",
     "../component/luiRadioGroup",
     "../component/luiSearch",
-    "../component/luiTagInput"
+    "../component/luiTagInput",
+    "../component/luiSelect"
 ]);
 
 const menus = NS.Load("../asset/json/menu.json");
