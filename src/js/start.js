@@ -7,7 +7,10 @@ NS.Component([
     "../component/luiRadioGroup",
     "../component/luiSearch",
     "../component/luiTagInput",
-    "../component/luiSelect"
+    "../component/luiSelect",
+    "../component/luiDatetime",
+    "../component/luiFileImg",
+    "../component/luiFileSelect"
 ]);
 
 const menus = NS.Load("../asset/json/menu.json");

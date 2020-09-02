@@ -55,8 +55,17 @@ p>button{
                 <button class="btn btn-sm" disabled>default is disable</button>
             </p>
             <p>
+                <button class="btn btn-mini">default</button>
+                <button class="btn blue btn-mini">blue</button>
+                <button class="btn green btn-mini">green</button>  
+                <button class="btn btn-border yellow btn-mini">yellow</button>
+                <button class="btn btn-border orange btn-mini">orange</button>
+                <button class="btn btn-border btn-mini" disabled>border is disable</button>
+                <button class="btn btn-mini" disabled>default is disable</button>
+            </p>
+            <p>
                 <span class="html-code">
-                    {{h3.d1}}<br/>{{h3.d2}}<br/>{{h3.d3}}<br/>{{h3.d4}}<br/>{{h3.d5}}
+                    {{h3.d1}}<br/>{{h3.d2}}<br/>{{h3.d3}}<br/>{{h3.d4}}<br/>{{h3.d5}}<br/>{{h3.d6}}<br/>{{h3.d7}}
                 </span>                
             </p>
         </li>
@@ -104,7 +113,9 @@ function buttonPage(){
                     d2:'<button class="btn blue btn-sm">blue</button>',
                     d3:'<button class="btn btn-border yellow btn-sm">yellow</button>',
                     d4:'<button class="btn btn-border btn-sm" disabled>border is disable</button>',
-                    d5:'<button class="btn btn-sm" disabled>default is disable</button>'
+                    d5:'<button class="btn btn-sm" disabled>default is disable</button>',
+                    d6:'<button class="btn btn-mini">default</button>',
+                    d7:'<button class="btn btn-mini" disabled>default is disable</button>'
                 },
                 h4:{
                     d1:'<button class="btn btn-border btn-lg">default</button>',

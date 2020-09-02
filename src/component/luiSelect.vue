@@ -1,5 +1,9 @@
 <component>
 <style>   
+.lui-date{
+    position: relative;
+    width: 100%;
+}
 .lui-select{
     width: 100%;
     position: relative;

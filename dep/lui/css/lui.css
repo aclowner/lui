@@ -1,7 +1,7 @@
 @import url("root.css");
 @import url("reset.css");
 @import url("loading.css");
-@import url("//at.alicdn.com/t/font_1984463_uabjnpc1gao.css");
+@import url("//at.alicdn.com/t/font_2041675_2jp1adnabxi.css");
 /* lui基本样式 */
 /* flex */
 .flex{
@@ -80,7 +80,7 @@ button:active {
 }
 .btn{
     min-width: 1rem ;
-    padding: 0 .08rem;
+    padding: 0 .1rem;
 	letter-spacing: 1px;
 	color: var(--input-color);
 	position: relative;
@@ -146,7 +146,7 @@ button:active {
 
 /* 小button */
 .btn.btn-sm{    
-    padding: 0 .04rem;
+    padding: 0 .08rem;
     min-width: .8rem;
     font-size: .16rem;
     line-height: 2;
@@ -156,6 +156,13 @@ button:active {
     padding: 0 .12rem;
     font-size: .16rem;
     line-height: 3;    
+}
+/* 最小button */
+.btn.btn-mini{
+    line-height: 1;
+    min-width: unset;
+    padding: 0.02rem .05rem;
+    border-radius: 2px;
 }
 
 .mr1{
@@ -361,6 +368,19 @@ a.radio.checked:after{
     margin-right: .4rem;
 }
 
+
+/* file input */
+.file-input-transparent{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border: none;
+    background: transparent;
+    opacity: 0;    
+    cursor: pointer;
+}
 
 
 /* lui-table */

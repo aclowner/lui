@@ -85,32 +85,20 @@ lui.FileData = function(name,size=0){
     if(!name)
         return null;
         
-    var json = {},
+    let json = {},
 		extension = name.substring(name.lastIndexOf(".")+1,name.length),
-        eu = extension.toUpperCase();
-	if(eu == "JPG" || eu == "JPEG" || eu == "PNG" || eu == "GIF")
-	{
-		json.type = 1;
-	}
-	else if(eu == "MP3")
-	{
-		json.type = 2;
-	}
-	else if(eu == "MP4")
-	{
-		json.type = 3;
-	}
-	else{
-		json.type = 4;
-	}
-	
-    let nuid = Guid();
+        eu = extension.toUpperCase(),
+        nuid = Guid();
+
+    let map = new Map([["JPG",1],["JPEG",1],["PNG",1],["GIF",1],["MP3",2],["MP4",3]]);
+
+    json.type = map.get(eu) || 4;	
     json.name = name;
     json.uid = nuid;
     json.uname =  nuid + "." + extension;    
-    json.size = (size / 1024 / 1024).toFixed(2);
-
-        
+    json.ext = extension;
+    json.extUp = eu;
+    json.size = parseInt(size)< 1048576 ? (parseFloat(size / 1024).toFixed(2)+"kb") : (parseFloat(size / 1024 / 1024).toFixed(2)+"mb");       
 	return json;
 }
 lui.FileStr = function(fitem){
@@ -131,6 +119,10 @@ lui.FileStrRes = function(str){
 
 lui.Guid = function(){
     return Guid();
+}
+
+lui.ShowPicture = function(img){
+    
 }
 
 /**

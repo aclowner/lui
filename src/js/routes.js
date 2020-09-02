@@ -1,10 +1,12 @@
 
-const {welcome,buttonPage,checkPage,inputPage,selectPage,tablePage,popupPage} = NS.Component([
+const {welcome,buttonPage,checkPage,inputPage,selectPage,datePage,filePage,tablePage,popupPage} = NS.Component([
     "../view/welcome",
     "../view/buttonPage",
     "../view/checkPage",
     "../view/inputPage",
     "../view/selectPage",
+    "../view/datePage",
+    "../view/filePage",
     "../view/tablePage",
     "../view/popupPage"
 ]);
@@ -36,6 +38,16 @@ function routes(){
             path:"/select",
             name:"select",
             component:selectPage,
+        },
+        {
+            path:"/date",
+            name:"date",
+            component:datePage,
+        },
+        {
+            path:"/file",
+            name:"file",
+            component:filePage,
         },
         {
             path:"/table",
