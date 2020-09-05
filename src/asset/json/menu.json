@@ -14,16 +14,16 @@
 
     {"id":4,"name":"列表","type":1},
     {"id":41,"name":"分页列表","type":2,"page":"/table"},
-    {"id":42,"name":"不分页列表","type":2,"page":"/table"},
+    {"id":42,"name":"不分页列表","type":2,"page":"/table2"},
 
     {"id":5,"name":"列表选择","type":1},
-    {"id":51,"name":"单层选择","type":2,"page":"/table"},
-    {"id":52,"name":"树状选择","type":2,"page":"/table"},
+    {"id":51,"name":"单层选择","type":2,"page":"/listSelect"},
+    {"id":52,"name":"树状选择","type":2,"page":"/treeSelect"},
 
     {"id":6,"name":"弹出层","type":1},
-    {"id":61,"name":"弹出窗口","type":2,"page":"/table"},
-    {"id":62,"name":"弹出提示","type":2,"page":"/table"},
-    {"id":63,"name":"弹出文件查看","type":2,"page":"/table"},
+    {"id":61,"name":"弹出窗口","type":2,"page":"/popupForm"},
+    {"id":62,"name":"弹出提示","type":2,"page":"/alert"},
+    {"id":63,"name":"弹出文件查看","type":2,"page":"/popupFile"},
 
     {"id":7,"name":"Lui Api","type":1},
     {"id":71,"name":"ajax请求","type":2,"page":"/apiRequest"},

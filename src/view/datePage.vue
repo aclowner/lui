@@ -4,21 +4,12 @@
 
 <template>
 <div class="page content">
-    <h3><a >下拉选择</a></h3>
+    <h3><a >日期时间选择</a></h3>
     <ul>
         <li>
-            <p>lui-select</p>
+            <p>lui-date</p>
             <p>
-                <lui-select :list="list1" v-model="obj.s1" placeholder="请选择"></lui-select>
-            </p>
-            <p>
-                <lui-select :list="list2" v-model="obj.s2"></lui-select>
-            </p>
-            <p>
-                <lui-select :list="list3" :index="1" v-model="obj.s3"></lui-select>
-            </p>
-            <p>
-                <lui-select :list="list4" :index="-1" :search="true" v-model="obj.s4"></lui-select>
+                <lui-datetime v-model="obj.s1" ></lui-datetime>
             </p>
             <p>
                 <input type="text" :value="JSON.stringify(obj)" readonly>
@@ -46,15 +37,11 @@ search  布尔类型，值为 true/false。是否打开搜索筛选功能
 </template>
 
 <script>
-function selectPage(){
+function datePage(){
     Object.assign(this,{
         data(){
             return {
-                list1:[{id:1,name:"option1"},{id:2,name:"option2"},{id:3,name:"option3"},{id:4,name:"option4"},{id:5,name:"option5"}],
-                list2:[["nj","南京"],["wx","无锡"],["sz","苏州"],["yz","扬州"]],
-                list3:["佩奇","乔治","猪爸爸","猪妈妈"],
-                list4:["北京","上海","广东","江苏","江西","湖北","湖南","广西","山东","山西","陕西","河南","河北"],
-                obj:{s1:"",s2:"",s3:"",s4:""}
+                obj:{s1:""}
             }
         }
     });

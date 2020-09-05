@@ -1,5 +1,5 @@
 
-lui = NS.Import("../../dep/lui/js/lui");
+Lui = NS.Import("../../dep/lui/js/Lui");
 
 NS.Component([
     "../component/luiCheckbox",
@@ -10,7 +10,9 @@ NS.Component([
     "../component/luiSelect",
     "../component/luiDatetime",
     "../component/luiFileImg",
-    "../component/luiFileSelect"
+    "../component/luiFileSelect",
+    "../component/luiTablePaging",
+    "../component/luiTable"
 ]);
 
 const menus = NS.Load("../asset/json/menu.json");

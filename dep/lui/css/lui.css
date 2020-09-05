@@ -385,30 +385,30 @@ a.radio.checked:after{
 
 /* lui-table */
 .lui-table .tr{
-    line-height: 48px;
-    border-bottom: var(--tbody-border);
-    margin: 0 .2rem;
     display: flex;
+    margin: 0 .2rem;    
+    line-height: 3;
 }
 .lui-table>.thead .tr{
     background: var(--thead-bg);
     border-bottom: var(--thead-border);
 }
-.lui-table .tr>span{
-    padding: 0 .4rem 0 .14rem;
+.lui-table .td, .lui-table .th{
+    padding:0 .14rem;
     overflow: hidden;
     white-space: nowrap;
-    text-overflow: ellipsis;   
+    text-overflow: ellipsis;
 }
-.lui-table.flex-auto .tr>span{
+.td-flex-auto .td, .td-flex-auto .th{
     flex: 1;
 }
-.lui-table .tr.tr-empty{
+.lui-table .tr-empty{
     border-bottom: none;
-}
-.lui-table .tr.tr-empty span{
     width: 100%;
     text-align: center;
+}
+.lui-table ._scroll ._bar{
+    width: 6px;
 }
 /* table-tr 更新动画 */
 .table-tr-enter{

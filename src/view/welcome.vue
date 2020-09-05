@@ -12,6 +12,19 @@
     font-size: .20rem;
     line-height: 4;
 }
+.btn-start{
+    background: var(--active-color);
+    padding: 0 .5rem;
+    line-height: 3;
+    margin-top: .4rem;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: .1rem;
+    border-radius: 3px;
+}
+.btn-start:hover{
+    transform: translateY(2px);
+}
 </style>
 
 <template>
@@ -19,7 +32,8 @@
     <img src="src/asset/img/logo.png" alt="">
     <span class="s1">Vue+NameSpace+Lui</span>
     <span class="s2">B端Vue UI组件库，B端运行编译Vue组件、动态导入JS，常用JavaScript原型扩展</span>
-    <button>开始</button>
+
+    <router-link class="btn-start" to="/button">开始</router-link>
 </div>
 </template>
 

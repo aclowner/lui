@@ -1,5 +1,5 @@
 
-const {welcome,buttonPage,checkPage,inputPage,selectPage,datePage,filePage,tablePage,popupPage} = NS.Component([
+const {welcome,buttonPage,checkPage,inputPage,selectPage,datePage,filePage,tablePage,tablePage2,popupPage} = NS.Component([
     "../view/welcome",
     "../view/buttonPage",
     "../view/checkPage",
@@ -8,7 +8,8 @@ const {welcome,buttonPage,checkPage,inputPage,selectPage,datePage,filePage,table
     "../view/datePage",
     "../view/filePage",
     "../view/tablePage",
-    "../view/popupPage"
+    "../view/tablePage2",
+    "../view/popupPage",
 ]);
 
 function routes(){
@@ -53,6 +54,11 @@ function routes(){
             path:"/table",
             name:"table",
             component:tablePage,
+        },
+        {
+            path:"/table2",
+            name:"table2",
+            component:tablePage2,
         },
         {
             path:"/popup",

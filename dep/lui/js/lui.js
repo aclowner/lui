@@ -11,7 +11,7 @@ config = NS.Load("../conf/config.json");
 const    {http,api,file} = config.path;
 const    _body = document.querySelector("body");
 
-function lui(){   
+function Lui(){   
 }
 
 //重写console
@@ -22,7 +22,7 @@ console.log = (function (oriLogFunc) {
 })(console.log);
 
 // 加载动画
-lui.Loading = function (s) {    
+Lui.Loading = function (s) {    
     if(s) {
         let _loadDiv = document.createElement('div');
         _loadDiv.innerHTML = `<i><span></span><span></span><span></span><span></span><span></span></i>`;
@@ -39,7 +39,7 @@ lui.Loading = function (s) {
 }
 
 //操作短暂提示框，2s后消失
-lui.Hit = function (t) {
+Lui.Hit = function (t) {
     //判断传入参数是否为int
     let hit = Number.isInteger(t);
     let _hitDiv = document.createElement('div');
@@ -55,15 +55,15 @@ lui.Hit = function (t) {
 }
 
 //ajax异步请求
-lui.ajax = {
+Lui.ajax = {
     get:function(url){
         let cf = {url:url,type:"GET"};
         return RequestRes(cf);
     },
     post:function(cf){
         let param = cf.data || {};
-        param.LoginId = lui.GetCookie("LOGIN_ID") || "";
-        param.Key = lui.GetCookie("LOGIN_KEY") || "";
+        param.LoginId = Lui.GetCookie("LOGIN_ID") || "";
+        param.Key = Lui.GetCookie("LOGIN_KEY") || "";
 
         cf.data = {sprams: {dbFun: cf.api, parms: param}};
         cf.url = http + api;   
@@ -71,17 +71,17 @@ lui.ajax = {
     }
 }
 //请求数据接口
-lui.AjaxApi = function(cf){
+Lui.AjaxApi = function(cf){
     let param = cf.data || {};
-        param.LoginId = lui.GetCookie("LOGIN_ID") || "";
-        param.Key = lui.GetCookie("LOGIN_KEY") || "";
+        param.LoginId = Lui.GetCookie("LOGIN_ID") || "";
+        param.Key = Lui.GetCookie("LOGIN_KEY") || "";
 
     cf.data = {sprams: {dbFun: cf.api, parms: param}};
     cf.url = http + api;   
     return RequestApi(cf);
 }
 
-lui.FileData = function(name,size=0){
+Lui.FileData = function(name,size=0){
     if(!name)
         return null;
         
@@ -101,10 +101,10 @@ lui.FileData = function(name,size=0){
     json.size = parseInt(size)< 1048576 ? (parseFloat(size / 1024).toFixed(2)+"kb") : (parseFloat(size / 1024 / 1024).toFixed(2)+"mb");       
 	return json;
 }
-lui.FileStr = function(fitem){
+Lui.FileStr = function(fitem){
     return fitem.type+"/"+fitem.name+"/"+fitem.uname+"/"+(fitem.size||"");
 }
-lui.FileStrRes = function(str){
+Lui.FileStrRes = function(str){
     let res = [],
         farr = str.split("*");
     for(let f of farr){
@@ -117,11 +117,11 @@ lui.FileStrRes = function(str){
     return res;
 }
 
-lui.Guid = function(){
+Lui.Guid = function(){
     return Guid();
 }
 
-lui.ShowPicture = function(img){
+Lui.ShowPicture = function(img){
     
 }
 
@@ -131,7 +131,7 @@ lui.ShowPicture = function(img){
  * @param {string} cvalue    cookie值 
  * @param {int} exdays    cookie存储时间，毫秒
  */
-lui.SetCookie = function(cname, cvalue, exdays=60*60*1000) {
+Lui.SetCookie = function(cname, cvalue, exdays=60*60*1000) {
 	if(!cname)
 		return;	
 	let d = new Date();
@@ -143,7 +143,7 @@ lui.SetCookie = function(cname, cvalue, exdays=60*60*1000) {
  * 获取cookie值
  * @param {string} cname 
  */
-lui.GetCookie = function(cname){
+Lui.GetCookie = function(cname){
 	let name = config.name+"_"+cname + "=",
 		ca = document.cookie.split(';');
     for(let i=0; i<ca.length; i++) {
@@ -158,8 +158,8 @@ lui.GetCookie = function(cname){
  * 删除cookie
  * @param {*} cname 
  */
-lui.DelCookie = function(cname){
-    lui.SetCookie(cname,"",1);
+Lui.DelCookie = function(cname){
+    Lui.SetCookie(cname,"",1);
 }
 
 /**
@@ -172,8 +172,8 @@ function RequestApi(cf){
             if(!cf.data.sprams.parms.LoginId)
                 reject("LoginId is null");
             else{
-                lui.SetCookie("LOGIN_ID",cf.data.LoginId,1000*60*60*3);
-                lui.SetCookie("LOGIN_KEY",cf.data.Key,1000*60*60*3);
+                Lui.SetCookie("LOGIN_ID",cf.data.LoginId,1000*60*60*3);
+                Lui.SetCookie("LOGIN_KEY",cf.data.Key,1000*60*60*3);
             }
 
         }      
@@ -184,13 +184,13 @@ function RequestApi(cf){
                 resolve(result.Data);
             else {
                 //统一处理数据不成功，cf.errCall=true时返回页面自定义处理数据不成功
-                !cf.errCall && lui.Hit(result.ResultData.ErrMsg);
+                !cf.errCall && Lui.Hit(result.ResultData.ErrMsg);
                 reject(result.ResultData);
             }
         },
         (err) => {
             //统一处理请求不成功，cf.errCall=true是返回页面自定义处理请求不成功
-            !cf.errCall && lui.Hit(err);
+            !cf.errCall && Lui.Hit(err);
             reject(err);
         });
     });
@@ -209,7 +209,7 @@ function RequestRes(cf){
             resolve(res);
         },
         (err) => {
-            !cf.errCall && lui.Hit(1,err);
+            !cf.errCall && Lui.Hit(1,err);
             reject(err);
         });
     });
@@ -225,7 +225,7 @@ function RequestRes(cf){
 function HttpRequest(cf,suc,err){
     let xhr = new XMLHttpRequest();  
     xhr.ontimeout = function(){
-        lui.Loading(0);
+        Lui.Loading(0);
     };
     xhr.onreadystatechange = function () {
         console.log("xhrsc",xhr);

@@ -92,7 +92,7 @@ body{
     list-style: disc;
     margin-bottom: .2rem;
 }
-.content li p{    
+.content li p, .content li .p{    
     padding-top: .2rem;
     display: flex;
 }
