@@ -2,8 +2,10 @@
 
 :root{
     --font-family: "微软雅黑","Arial","Microsoft YaHei";
-    --size: .16rem;    
+    --size: .16rem;   
+    --color: #485778;
     --active-color:#4fc08d;
+    --disable-color: #ccc;
     --blue: #3981e3;
     --green: #88c132;
     --cyan: #4fc08d;

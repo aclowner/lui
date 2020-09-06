@@ -3,50 +3,60 @@
 .lui-datetime{
     width: 100%;
     position: relative;
+    font-size: .16rem;
+}
+.lui-datetime:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: var(--input-height);
+    border-left: var(--input-border);
 }
 .lui-datetime .i-datetime{
     pointer-events: none;
     position: absolute;
     right: 16px;
     top: 50%;
-    transform: translate(50%,-50%);            
-    width: 12px;
-    height: 12px;
+    transform: translate(50%,-50%);
+    font-size: .20rem;
+    color: var(--active-color);
 }
 .datetime-select{
     position: absolute;
     color:var(--color);
     background: var(--select-bg);
     border: var(--input-border);
-    width: 2.56rem;
+    width: 2.84rem;
     left: 0;
     top: var(--input-height);
-    margin-top: 2px;
-    font-size: .14rem; 
+    margin-top: 2px;    
     z-index: 99; 
 }
 .date-top-btn{    
-    line-height:32px;
+    line-height:2.5;
     display: flex;
     align-items: center;
-    justify-content: space-between;   
+    justify-content: space-between;  
+    padding: 0 .08rem; 
 }
 .date-top-btn .a-prev, .date-top-btn .a-next{
-    width: 50px;
-    color:var(--input-border-color);
+    width: .3rem;
+    width: .3rem;
+    color:var(--input-color);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .date-top-btn .a-prev:hover, .date-top-btn .a-next:hover{
-    color: var(--select-color);
+    color: var(--active-color);
 }
 .date-top-btn .a-prev:before, .date-top-btn .a-next:before{
     content: "";
     display: inline-block;
     vertical-align: top;
-    width: 8px;
-    height: 8px;
+    width: .1rem;
+    height: .1rem;
     border-left: solid 1px;
     border-bottom: solid 1px;
 }
@@ -57,20 +67,21 @@
     transform: rotate(-135deg);
 }
 .date-top-btn .a-ym{
+    font-size: .2rem;
     flex: 1;
     overflow: hidden;
     text-align: center;
 }
 
 .week{
-    height:.24rem;
+    line-height: 2.2;
     padding:0 .1rem;
     background:#ededed;
     display: flex;
     align-items: center;
 }
 .week>span{
-    width:.28rem;
+    width:.32rem;
     text-align:center;
     margin-left:.06rem;
     color:#666;
@@ -84,86 +95,95 @@
     display: flex;
     flex-wrap: wrap;
 }
-.days>a{
-    width: .28rem;
-    height: .28rem;
+.days>a, .day-before{
+    width: .32rem;
+    height: .32rem;
     margin-left: .06rem;
     margin-bottom: .06rem;
-    border-radius: .14rem;
-    text-align: center;
-    line-height: 2
+    border-radius: 100%;
 }
-.days>a.enable{
-    color: #5b7f8c;
+.days>a, .month-box>a, .year-box>a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.days>a.enable:hover{
-    background: none;
-    cursor: default;
+.days>a.isday{
+    color: var(--active-color);
 }
 
 .month-box, .year-box{
-    padding: .2rem .37rem .12rem .37rem;
+    padding: .02rem .28rem .05rem .28rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-top: var(--input-border);
 }
 .month-box>a, .year-box>a{
-    width: .42rem;
-    height: .42rem;
-    text-align: center;
-    line-height: .42rem;
-    display: inline-block;
-    vertical-align: top;
-    margin: 0 .26rem .08rem 0;
-    border-radius: .21rem;
-    align-items: center;
-    justify-content: center;
-    font-size: .14rem;
+    width: .54rem;
+    height: .54rem;
+    margin: .05rem;
+    border-radius: 100%;
 }
 .ly2>a{
-    font-size: 12px;
-    line-height: 16px;
-    padding: 4px;
+    font-size: .14rem;
+    line-height: 1;
+    padding-left: .08rem;
 }
-.list-month>a:nth-child(3n), .list-year>a:nth-child(3n){
+.month-box>a:nth-child(3n), .year-box>a:nth-child(3n){
     margin-right: 0;
 }
-.list-day>.days>a:hover, .list-month>a:hover, .list-year>a:hover{
-    background:var(--select-li-hover-bg);
+.days>a:hover, .month-box>a:hover, .year-box>a:hover{
+    border: solid 1px var(--active-color);
 }
-.list-day>.days>a.active, .list-month>a.active, .list-year>a.active{
-    background:var(--select-color);
+.year-box.ly2>a:hover{
+    padding-left: .07rem;
+}
+.days>a.active, .month-box>a.active, .year-box>a.active{
+    background:var(--active-color);
     color:#fff;
 }
+.days>a.enable{
+    color: var(--disable-color);
+    background: none;
+}
+.days>a.enable:hover{
+    border: none;
+    cursor: default;    
+}
+
+
 .hhmm{
-    width: 220px;
-    height: 220px;
+    width: 2.4rem;
+    height: 2.4rem;
     position: relative;
     background: #ebebeb;
-    border-radius: 120px;
-    margin: 17px;
+    border-radius: 100%;
+    margin: .22rem;
 }
 .hh, .mm{
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-left: -15px;
-    margin-top: -15px;
+    margin-left: -.16rem;
+    margin-top: -.16rem;
 }
 .hh>a, .mm>a{
     position: absolute;
-    width: 30px;
-    height: 30px;
-    border-radius: 15px;
+    width: .32rem;
+    height: .32rem;
+    border-radius: 100%;
     transform-origin: center center;    
 }
 .hh>a> span, .mm>a span{
-    width: 30px;
-    height: 30px;
+    width: .32rem;
+    height: .32rem;
     text-align: center;
-    line-height: 30px;
+    line-height: .32rem;
     position: absolute;
     transform-origin: center center; 
 }
 .hh>a:nth-child(n+13){
-    font-size: 12px;
+    font-size: .14rem;
     color: #888;
 }
 .hh>a:hover{
@@ -171,73 +191,73 @@
 }
 .hh:after, .mm:after{
     content: "";
-    height: 8px;
-    width: 8px;
-    background: var(--select-color);
-    border-radius: 4px;
+    height: .1rem;
+    width: .1rem;
+    background: var(--active-color);
+    border-radius: 100%;
     position: absolute;
-    top: 11px;
-    left: 11px;
+    top: .1rem;
+    left: .1rem;
 }
 .hh>a.active{
-    background: var(--select-color);
+    background: var(--active-color);
     color: #fff;
 }
 .a-line{
     position: absolute;
     height: 1px;
     transform-origin: left top; 
-    background: var(--select-color);
-    top: 15px;
-    left: 15px;
+    background: var(--active-color);
+    top: .15rem;
+    left: .15rem;
 }
 
 .mm{
-    margin-top: -5px;
-    margin-left: -14px;
+    margin-top: -.05rem;
+    margin-left: -.14rem;
 }
 .mm>a, .mm>a span{
-    height: 10px;
-    width: 28px;  
-    line-height: 10px; 
+    height: .12rem;
+    width: .3rem;  
+    line-height: .1rem; 
 }
 .mm>a{
     font-size: 0;
 }
 .mm>a:nth-child(5n){
-    font-size: 14px;
+    font-size: .16rem;
 }
 .mm>a>span{
     pointer-events: none;
     z-index: 19;
-    margin-left: 14px;
+    margin-left: .18rem;
 }
 .mm:after{
-    left: 10px;
-    top: 1px;
+    left: .1rem;
+    top: .01rem;
 }
 .mm>a:before{
     content: "";
     position: absolute;
-    width: 4px;
-    height: 4px;    
-    border-radius: 2px;
-    top: 3px;
-    left: 12px;
+    width: .04rem;
+    height: .04rem;    
+    border-radius: 100%;
+    top: .04rem;
+    left: .12rem;
     pointer-events: none;
-    background: #ddd;
+    background: #ccc;
     z-index: 20;
 }
 .mm>a:nth-child(5n):before{
-    width: 8px;
+    width: .1rem;
 }
 .mm>a:after{
     content: "";
     position: absolute;
-    width: 28px;
-    height: 28px;    
-    border-radius: 14px;
-    top: -9px;
+    width: .3rem;
+    height: .3rem;    
+    border-radius: 100%;
+    top: -.1rem;
     left: 0;
     pointer-events: none;
     z-index: -1;
@@ -250,52 +270,54 @@
     background: rgba(0,0,0,0.1);
 }
 .mm>a:hover:before{
-    background: var(--select-color);
+    background: var(--active-color);
 }
 .mm>a.active, .mm>a.active:hover{
-    color: var(--select-color);
+    color: var(--active-color);
 }
 .mm>a.active:before, .mm>a.active:hover:before{
-    background: var(--select-color);
+    background: var(--active-color);
 }
 .mm .a-line{
-    width: 82px;
-    top: 5px;
-    left: 14px;
+    width: .88rem;
+    top: .06rem;
 }
 
 .hmsave, .ymdhmsave{
-    height: 41px;
     border-top: var(--input-border);
-    line-height: 40px;
+    line-height: 3;
     display: flex;
     justify-content: space-around;
 }
 .hmsave>span{
-    width: 70px;
+    width: .8rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-left: 10px;
+    padding-left: .1rem;
 }
 .hmsave>span>a{
-    height: 25px;
-    line-height: 24px;
-    margin-left: 8px;
-    padding: 0 6px;
-    border-bottom: solid 1px var(--select-color);
-    color: var(--select-color);
+    line-height: 1.5;
+    margin-left: .1rem;
+    padding: 0 .08rem;
+    border-bottom: solid 1px var(--active-color);
+    color: var(--active-color);
 }
 .hmsave>a{
-    width: 52px;
-    color: var(--select-color);
+    width: .5rem;
+    color: var(--active-color);
     text-align: center;
+    margin-right: .1rem;
 }
 .ymdhmsave>a{
-    padding: 0 10px;
+    padding: 0 .14rem;
+    color: var(--active-color);
+}
+.ymdhmsave>a:hover, .hmsave>a:hover{
+    text-decoration: underline;
 }
 .ymdhmsave>a:nth-child(2){
-    margin-right: 20px;
+    margin-right: .2rem;
 }
 </style>
 <template>
@@ -306,19 +328,20 @@
         <template v-if="type!=4&&active!=6">
             <div class="date-top-btn">
                 <a class="a-prev" @click="pnClick(-1)"></a>
-                <a class="a-ym" @click="ymClick">{{top}}</a>
+                <div class="a-ym"><a  @click="ymClick">{{top}}</a></div>
                 <a class="a-next" @click="pnClick(1)"></a>
             </div>
             <div class="day-box" v-if="active==1||active==5">
                 <div class="week"><span v-for="w in weekArr" :key="w">{{w}}</span></div>
                 <div class="days">
-                    <a :class="['a-day',{active:getDayActive(d)}]" v-for="d in days" :key="d" :style="{marginLeft:(d==1?DFstyle:'.06rem')}" @click="dayClick(d)">{{d}}</a>							
+                    <template v-if="ymDayFirst>0"><span class="day-before" v-for="(before,di) in ymDayFirst" :key="'begore'+di"></span></template>                    
+                    <a :class="['a-day',{active:getDayActive(d)},{isday:d==now.d},{enable:!getDayAble(d)}]" v-for="(d,di) in days" :key="di" @click="dayClick(d)">{{d}}</a>							
                 </div>
             </div>
             <div class="month-box" v-else-if="active==2">
                 <a :class="['a-month',{active:i+1 == month}]" v-for="(m,i) in monthArr" :key="i" @click="monthClick(i)">{{m}}</a>								
             </div>
-            <div :class="['list-year',{ly2:active==4}]" v-else>
+            <div :class="['year-box',{ly2:active==4}]" v-else>
                 <a :class="['a-year',{active:yCloud(y)}]" v-for="(y,yi) in yearArr" :key="yi" @click="yearClick(y)">{{y}}</a>	
             </div>
         </template>
@@ -357,14 +380,15 @@ function luiDatetime(){
         props:{            
             'value' : {default:""},           //选中值 sync传入，update修改
             'format' : {default:"yyyy-MM-dd"},             
-            "start" : {default:""},
-            "end" : {default:""},
+            "min" : {default:null},
+            "max" : {default:null},
         },
         data(){
                 return{
                     val: "",
                     type: 1,  //1:年月日 2:年月 3:年 4:时分 5:年月日时分
                     fmMap: new Map([["yyyyMMdd",1],["yyyyMM",2],["yyyy",3],["hh:mm",4],["yyyyMMdd hh:mm",5]]),
+                    now:{d:0},
                     show: false,
                     evTag : "",
                     weekArr : ["日","一","二","三","四","五","六"],              //星期显示
@@ -418,9 +442,8 @@ function luiDatetime(){
                     }			
                     return result;                        
                 },
-                DFstyle(){
-                    let df = new Date(this.year,this.month-1,1).getDay();
-                    return (34*df+6)/100+"rem";
+                ymDayFirst(){
+                    return this.year&&this.month ? new Date(this.year,this.month-1,1).getDay() : 1;
                 },
                 hhlPst(){  //小时指针位置
                     let hh = parseInt(this.hhmm[0]);
@@ -438,6 +461,14 @@ function luiDatetime(){
                     return {
                         transform:"rotate("+rt+"deg)"
                     }
+                },
+                minVal(){
+                    let minV = this.getMinMaxVal(this.min);
+                    return minV ? new Date(minV+" 01:").getTime() : false;
+                },
+                maxVal(){
+                    let maxV = this.getMinMaxVal(this.max);
+                    return maxV ? new Date(maxV+" 23:").getTime() : false;
                 }
             },
             methods:{
@@ -505,6 +536,8 @@ function luiDatetime(){
                     }
                 },
                 dayClick(d){  //天-点击
+                    if(!this.getDayAble(d))
+                        return;
                     this.day = d;
                     if(this.type==5){
                         this.active = 6;
@@ -519,6 +552,31 @@ function luiDatetime(){
                         cv = this.val ? (this.type==5 ? this.val.split(" ")[0] : this.val) : this.date();
                     return sd == cv;
                 },
+                getDayAble(d){
+                    let minB = true,
+                        maxB = true;
+                    let ddd = this.year+"-"+this.month.toString().padStart(2,"0")+"-"+d.toString().padStart(2,"0")+" 10:";
+                    if(this.minVal)
+                        minB = new Date(ddd).getTime() > this.minVal;
+                    if(this.maxVal)
+                        maxB = new Date(ddd).getTime() < this.maxVal;
+                    console.log(minB,maxB,this.minVal,this.maxVal)
+                    return minB && maxB;
+                },
+                getMinMaxVal(v){
+                    if(v==null || v==undefined)
+                        return false;                    
+                    let tof = typeof v,
+                        str = "";
+                    console.log(v,tof);
+                    if(tof=="string")
+                        str = v;
+                    else if(tof=="number")
+                        str = new Date().addDays(v);
+                    else
+                        return false;
+                    return str;
+                },
                 yCloud(y){
                     y += "";
                     if(y.indexOf("-")>0){
@@ -532,7 +590,7 @@ function luiDatetime(){
                         return y==this.year;
                 },		
                 date(t){
-                    let date = new Date(),
+                    let date = this.nowDate || new Date(),
                         year = date.getFullYear(),
                         month = (date.getMonth() + 1).toString().padStart(2,'0'),
                         dd = date.getDate().toString().padStart(2,'0');
@@ -542,9 +600,9 @@ function luiDatetime(){
                 hhPst(i){
                     let h12 = i<13?i:i-12,
                         rt = h12*30-90,
-                        tx = i<13?92:62;
+                        tx = i<13?1.04:.7;
                     return {
-                        transform:"rotate("+rt+"deg) translate("+tx+"px)"
+                        transform:"rotate("+rt+"deg) translate("+tx+"rem)"
                     }
                 },
                 hhtRt(i){
@@ -557,7 +615,7 @@ function luiDatetime(){
                 mmPst(i){
                     let rt = i*6-90;
                     return {
-                        transform:"rotate("+rt+"deg) translate(82px)"
+                        transform:"rotate("+rt+"deg) translate(.88rem)"
                     }
                 },
                 mmtRt(i){
@@ -604,7 +662,9 @@ function luiDatetime(){
             },
             watch:{
                 show(v){
-                    if(v){			
+                    if(v){		
+                        this.nowDate = new Date();	
+                        this.now.d = this.nowDate.getDate();
                         this.active = this.type==5?1:this.type;
                         this.setValue();				
                     }
@@ -620,7 +680,7 @@ function luiDatetime(){
                     },
                     immediate: true                    
                 },
-                foramt:{
+                format:{
                     handler:function(nv){
                         this.type = nv ? this.fmMap.get(nv.replace(/-/g,"")) : 1;
                     },

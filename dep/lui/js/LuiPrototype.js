@@ -154,3 +154,30 @@ Array.prototype.toggleValue = function(value){
     else
         this.splice(index,1);
 }
+
+//日期加天数
+Date.prototype.addDays = function(days=0){
+    let d = this;
+    d.setDate(d.getDate()+days); 
+	var m=d.getMonth()+1; 
+    return d.getFullYear()+"-"+m.toString().padStart(2,"0")+"-"+d.getDate().toString().padStart(2,'0');
+}
+Date.prototype.format = function(fmt){
+    let date = this,
+        ret;
+    const opt = {
+        "y+": date.getFullYear().toString(),        // 年
+        "M+": (date.getMonth() + 1).toString(),     // 月
+        "d+": date.getDate().toString(),            // 日
+        "h+": date.getHours().toString(),           // 时
+        "m+": date.getMinutes().toString(),         // 分
+        "s+": date.getSeconds().toString()          // 秒
+    };
+    for (let k in opt) {
+        ret = new RegExp("(" + k + ")").exec(fmt);
+        if (ret) {
+            fmt = fmt.replace(ret[1], (ret[1].length == 1) ? (opt[k]) : (opt[k].padStart(ret[1].length, "0")))
+        };
+    };
+    return fmt;
+}

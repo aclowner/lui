@@ -11,6 +11,39 @@
             <p>
                 <lui-datetime v-model="obj.s1" ></lui-datetime>
             </p>
+        </li>
+        <li>
+            <p>lui-date(yyyy-MM)</p>
+            <p>
+                <lui-datetime v-model="obj.s2" format="yyyy-MM"></lui-datetime>
+            </p>
+        </li>
+        <li>
+            <p>lui-date(yyyy)</p>
+            <p>
+                <lui-datetime v-model="obj.s3" format="yyyy"></lui-datetime>
+            </p>
+        </li>
+        <li>
+            <p>lui-date(hh:mm)</p>
+            <p>
+                <lui-datetime v-model="obj.s4" format="hh:mm"></lui-datetime>
+            </p>
+        </li>
+        <li>
+            <p>lui-date(yyyy-MM-dd hh:mm)</p>
+            <p>
+                <lui-datetime v-model="obj.s5" format="yyyy-MM-dd hh:mm"></lui-datetime>
+            </p>
+        </li>
+        <li>
+            <p>lui-date(min/max)</p>
+            <p>
+                <lui-datetime v-model="obj.s6" min="2020-09-02" :max="-1"></lui-datetime>
+            </p>
+        </li>
+        <li>
+            <p>绑定数据</p>
             <p>
                 <input type="text" :value="JSON.stringify(obj)" readonly>
             </p>
@@ -19,15 +52,10 @@
             <p>使用说明</p>
             <p>
                 <pre>
-                <code class="js">list    数组类型，下拉选项数组，数据类型为数组，数组项支持1:对象、2:数组、3:值类型
-数量类型1：[{id:"",name:""}...] 或者 [{Id:"",Name:""},...] 只支持指定字段，没有指定字段则认为非法数据
-数据类型2: [["nj","南京"],["val","name"],...]  建议使用该数据类型
-数据类型3：["option1","option2",....]
-v-model  双向绑定数据选中的数据值
-index    int类型，取值范围为>=-1的整数，-1时为特殊用法，表示取值为选择项的名称，对数据类型2无效
-为>=0的整数，仅对数据类型3有效，用于索引取值相加，一般用于将索引从0开始转为从1开始
-placeholder  string类型，文本框提示内容，默认为空
-search  布尔类型，值为 true/false。是否打开搜索筛选功能
+                <code class="js">组件名称    lui-datetime
+可选参数    format  srring  日期时间选择类型  yyyy-MM-dd(默认)/yyyy-MM/yyyy/hh:mm/yyyy-MM-dd hh:mm
+           min  string/int  最小值  精确到天，包含该天  string为具体日期， int表示相对于今天加天数
+           max  string/int  最大值  精确到天，包含该天  string为具体日期， int表示相对于今天加天数
 </code>
 </pre>                
             </p>
@@ -43,6 +71,10 @@ function datePage(){
             return {
                 obj:{s1:""}
             }
+        },
+        created(){
+            let d = new Date();
+            console.log(new Date("2020-12-22").format("yyyy-M-d"));
         }
     });
 }
