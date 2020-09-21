@@ -148,7 +148,7 @@
 
     //时间
     Object.assign(Date.prototype,{
-        foramt(fmt){
+        format(fmt){
             //时间格式化
             let date = this,
                 ret;
