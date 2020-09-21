@@ -1,0 +1,13 @@
+{
+    "name":"lui",
+    "debug": true,
+    "session":{
+        "key":"LOGIN_KEY",
+        "id":"LOGIN_ID"
+    },
+    "path":{
+        "http":"http://ms.jsvrt.com:8083/",
+        "api":"wl_projectMa_api/api/service/",
+        "file":"projectFile/"
+    }
+}

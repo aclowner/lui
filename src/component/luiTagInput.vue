@@ -5,7 +5,7 @@
 <template>
 <div class="lui-tag-input">
     <span class="tag before" v-if="before">{{before}}</span>
-    <input type="text">
+    <slot></slot>
     <span class="tag after" v-if="after">{{after}}</span>
 </div>
 </template>

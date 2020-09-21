@@ -1,15 +1,7 @@
 <component>
 <style>
 .lui-table.paging{
-    width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    font-size: .16rem;
-}
-.thead{    
-    background: rgba(0, 0, 0, .1);
 }
 .thead .tr{
     line-height: 3.2;

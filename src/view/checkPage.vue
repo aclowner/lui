@@ -72,6 +72,19 @@ index    int类型，第二种数据该参数有效，默认为0，用于双向�
             </p>
         </li>
     </ul>
+
+    <h3><a >switch</a></h3>
+    <ul>
+        <li>
+            <p>lui-switch</p>
+            <p>
+                <lui-switch v-model="sw"></lui-switch>
+            </p>
+            <p>
+                <input type="text" :value="sw">
+            </p>
+        </li>      
+    </ul>
 </div>
 </template>
 
@@ -84,7 +97,8 @@ function checkPage(){
                 da:"0,2",
                 da2:"",
                 radioVal1:"",
-                radioVal2:"option2"
+                radioVal2:"option2",
+                sw:1
             }            
         },
         computed:{

@@ -55,10 +55,6 @@
 <script>
 function luiFileSelect(){
     Object.assign(this,{
-        model:{
-            prop:"value",
-            event:"input"
-        },
         props:{
             value:"",
             length:{default:1},        
@@ -72,7 +68,7 @@ function luiFileSelect(){
             addImg(e,i){
                 this.update = true;
                 for(let file of e.target.files){
-                    let vf = lui.FileData(file.name,file.size);
+                    let vf = file.ToJson();
                     this.fileArr.push(vf);                 
                 }
             },
@@ -82,6 +78,55 @@ function luiFileSelect(){
                     //param 图片数组索引
                     this.fileArr.splice(param,1);
                 }
+            },
+            getFileData(){
+                if(this.fileArr.length==0)
+                    return false;
+                let formData = new FormData();
+                let farr = [], //数据库存储字段字符串拼接
+                    ts = [],  //文件类型数组
+                    us = [];  //文件guid数组
+                for(let f=0;f<this.files.length;f++){
+                    let fitem = this.files[f];
+                    if(fitem.file){
+                        formData.append('FileData',fitem.File);   //添加FormData文件 
+                        ts.push(fitem.Type);
+                        us.push(fitem.Name); 
+                    }
+                    farr.push(this.fileStrJoin(fitem));   //数据库保存数据所用的拼接字符串
+                }
+                formData.append('Type', ts.join(","));  //赋值文件类型
+                formData.append('UName', us.join(","));  //赋值文件guid
+                return {formData:formData,dataStr:farr.join("*")};
+            },
+            fileStrSplit(str){
+                let res = [],
+                    farr = str.split("*");
+                for(let f of farr){
+                    let arr = f.split("/");
+                    let fo = {type:arr[2],name:arr[0],uname:arr[1],size:arr[3],edit:1};
+                    if(arr[0]==1)
+                        fo.src = file+arr[2];
+                    res.push(fo);
+                }
+                return res;
+            },
+            fileStrJoin(fitem){
+                return fitem.type+"/"+fitem.name+"/"+fitem.uname+"/"+fitem.size;
+            }
+        },
+        watch:{
+            value:{
+                handler(nv){
+                    if(!nv){
+                        this.fileArr = [];
+                        return;
+                    }                        
+                    let res = this.fileStrSplit(nv);
+                    if(res!=this.fileArr)
+                        this.fileArr = res;
+                },
+                immediate:true
             }
         }
     });

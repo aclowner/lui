@@ -153,25 +153,27 @@ function luiSelect(){
         watch:{
             list:{
                 //监听下拉列表数据，立即监听
-                handler:function(nv,ov){
-                    if(!nv || Array.isArray(nv))
+                handler:function(nv,ov){                    
+                    if(!nv || !Array.isArray(nv))
                         this.optionArr = [];
-                    //为了减少参数，将index作了特殊使用，当需要使用的值为索引时，index为>=0的整数，获取的值为选项索引+index；当index === -1时，表示值为名称
-                    let isName = this.index === -1;
-                    this.optionArr = nv.map((o,i)=>{
-                        //选项数据为错误数据，则添加错误选项 -2
-                        if(!o)
-                            return [-2,""];
-                        //选项为对象  则取id/name或者Id/Name，没有id/Id 则为错误数据
-                        if(o.constructor === Object)
-                            return [isName?(o.name||o.Name||-2):(o.id||o.Id||-2),o.name||o.Name];
-                        //选项为数组  只支持[value,name] --暂未作详细判断
-                        else if(o.constructor == Array)
-                            return o.length==2 ? o : [-2,""];
-                        //简单值类型  则取索引作为值
-                        else
-                            return [isName?o:(i+this.index+""),o];
-                    });
+                    else{
+                        this.optionArr = nv.map((o,i)=>{
+                            //为了减少参数，将index作了特殊使用，当需要使用的值为索引时，index为>=0的整数，获取的值为选项索引+index；当index === -1时，表示值为名称
+                            let isName = this.index === -1;
+                            //选项数据为错误数据，则添加错误选项 -2
+                            if(!o)
+                                return [-2,""];
+                            //选项为对象  则取id/name或者Id/Name，没有id/Id 则为错误数据
+                            if(o.constructor === Object)
+                                return [isName?(o.name||o.Name||-2):(o.id||o.Id||-2),o.name||o.Name];
+                            //选项为数组  只支持[value,name] --暂未作详细判断
+                            else if(o.constructor == Array)
+                                return o.length==2 ? o : [-2,""];
+                            //简单值类型  则取索引作为值
+                            else
+                                return [isName?o:(i+this.index+""),o];
+                        });
+                    }
                     this.optionArrShow = this.optionArr;
                     this.setText();
                 },

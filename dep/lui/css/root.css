@@ -22,5 +22,9 @@
     --scroll-bar: #bbb;
     --popup-bg: #fff;
     --popup-color: #5e6c84;
+
+    --table-head-bg:#f0f0f0;
+    --table-border: solid 1px #eaeaea;
+    --table-tr-hover-bg: #f9f9f9;
 }
 

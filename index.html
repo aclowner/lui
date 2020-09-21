@@ -6,11 +6,11 @@
     <title>lui</title>
 
     <link rel="stylesheet" href="dep/lui/css/lui.css">
-    <link rel="stylesheet" href="src/css/page.css">
-
-    <script src="dep/lui/js/lui-rem.js"></script>
+    <!-- <link rel="stylesheet" href="src/css/page.css"> -->
+    
+    <script src="dep/lui/js/LuiRem.js"></script>
     <script src="dep/vue/vue.js"></script>
-    <script src="dep/vue/vue-router.min.js"></script>
+    <script src="dep/vue/vue-router.min.js"></script>    
 
 </head>
 <body>
@@ -51,8 +51,18 @@
 
     </div>
 
-    <script src="dep/namespace/pako.js"></script>
-    <script src="dep/namespace/Namespace_2.1.8.js" defer="defer" start="src/js/start" ></script>
+    <script src="dep/namespace/Namespace_3.0.7.js" defer="defer" >
+        let config = {
+            styles:["src/css/page.css"],
+            scripts:[
+                "dep/lui/js/Lui_2.0.js",
+                "dep/lui/js/LuiUtil.js",
+                // "dep/lui/js/LuiConsole.js",
+                "dep/namespace/signals.js"
+            ],
+            start: "src/js/start"
+        }
+    </script>
 
 </body>
 </html>

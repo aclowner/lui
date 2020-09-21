@@ -237,7 +237,6 @@ function HttpRequest(cf,suc,err){
             }
         }
     };
-
     xhr.timeout = 1000*30;
     xhr.open(cf.type||'POST', cf.url, true);    
     if(!cf.file)

@@ -9,8 +9,8 @@
         <li>
             <p>分页表格</p>
             <div class="p" >
-                <div class="table-area" style="width:100%;height: 40vh;background: #f0f0f0;">
-                    <lui-table-paging class="td-flex-auto" :thead="tdKey" :length="list.length" v-model="listSE">
+                <div class="table-area" style="width:100%;height: 40vh;">
+                    <lui-table-paging class="" :thead="tdKey" :length="list.length" v-model="listSE">
                         <div class="tr" v-for="(tr,ti) in listShow" :key="ti">
                             <span class="td">{{listSE[0]+ti+1}}</span>
                             <span class="td">{{tr.name}}</span>

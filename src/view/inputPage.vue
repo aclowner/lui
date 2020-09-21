@@ -30,13 +30,13 @@
         <li>
             <p>前/后标签</p>
             <p>
-                <lui-tag-input before="前面内容"></lui-tag-input>
+                <lui-tag-input before="前面内容"><input type="text"></lui-tag-input>
             </p>
             <p>
-                <lui-tag-input after="后面内容"></lui-tag-input>
+                <lui-tag-input after="后面内容"><input type="text"></lui-tag-input>
             </p>
             <p>
-                <lui-tag-input before="电子邮件" after="@qq.com"></lui-tag-input>
+                <lui-tag-input before="电子邮件" after="@qq.com"><input type="text"></lui-tag-input>
             </p>
         </li>
     </ul>

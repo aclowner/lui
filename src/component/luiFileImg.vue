@@ -104,7 +104,7 @@ function luiFileImg(){
             addImg(e,i){
                 this.update = true;
                 for(let file of e.target.files){
-                    let vf = lui.FileData(file.name,file.size);
+                    let vf = file.ToJson();
                     let reader = new FileReader();
                     reader.readAsDataURL(file);
                     reader.onload=(e)=>{

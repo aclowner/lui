@@ -1,10 +1,11 @@
 
-Lui = NS.Import("../../dep/lui/js/Lui");
+// Lui = NS.Import("../../dep/lui/js/Lui");
 
 NS.Component([
     "../component/luiCheckbox",
     "../component/luiCheckboxGroup",
     "../component/luiRadioGroup",
+    "../component/luiSwitch",
     "../component/luiSearch",
     "../component/luiTagInput",
     "../component/luiSelect",
@@ -12,13 +13,26 @@ NS.Component([
     "../component/luiFileImg",
     "../component/luiFileSelect",
     "../component/luiTablePaging",
-    "../component/luiTable"
+    "../component/luiTable",
+    "../component/luiTree",
 ]);
+
+//临时代码
+Vue.component("scroll", {
+    template: `<div class="_scroll">
+            <div class="_con">
+                <slot></slot>
+            </div>
+        </div>`
+});
 
 const menus = NS.Load("../asset/json/menu.json");
 const routes = NS.Import("routes");
 
+Tween =  NS.Import("../../dep/namespace/Tween");
+
 function start(){
+
     let router = new VueRouter({
         routes:new routes()
     });

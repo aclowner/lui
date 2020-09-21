@@ -9,17 +9,17 @@
         <li>
             <p>自动加载</p>
             <div class="p" >
-                <div class="table-area" style="width:100%;height: 30vh;background: #f0f0f0;">
-                    <lui-table class="td-flex-auto" :thead="tdKey" :list="list">
+                <div class="table-area" style="width:100%;height: 30vh;">
+                    <lui-table :thead="tdKey" :list="list">
                     </lui-table>
                 </div>                 
             </div>
         </li>
-         <li>
+        <li>
             <p>自定义加载</p>
             <div class="p" >
-                <div class="table-area" style="width:100%;height: 30vh;background: #f0f0f0;">
-                    <lui-table class="td-flex-auto" :thead="tdKey" height="20vh">
+                <div class="table-area" style="width:100%;height: 30vh;">
+                    <lui-table class="border" :thead="tdKey" height="20vh">
                         <div class="tr" v-for="(tr,tri) in list" :key="tri">
                             <span class="td" v-for="(v,k,i) in tdKey" :key="i">
                                 <span v-if="k=='sex'">{{tr.sex==1?"男":"女"}}</span>
@@ -31,6 +31,32 @@
             </div>
         </li>
         <li>
+            <p>列表单选</p>
+            <div class="p" >
+                <div class="table-area" style="width:100%;height: 30vh;">
+                    <lui-table :thead="tdKey" :list="list" select="1" v-model="selVal1"></lui-table>
+                </div>                 
+            </div>
+        </li>
+        <li>
+            <p>列表多选</p>
+            <div class="p" >
+                <div class="table-area" style="width:100%;height: 30vh;">
+                    <lui-table :thead="tdKey" :list="list" select="2" v-model="selVal2"></lui-table>
+                </div>                 
+            </div>
+        </li>
+        <li>
+            <p>列表选择数据</p>
+            <p>
+                <lui-tag-input before="单选值"><input type="text" :value="selVal1"></lui-tag-input>
+            </p>
+            <p>
+                <lui-tag-input before="多选值"><input type="text" :value="selVal2.join(',')"></lui-tag-input>
+            </p>
+            
+        </li>
+        <li>
             <p>使用说明</p>
             <p>
                 <pre> 
@@ -38,6 +64,9 @@
 可选参数  thead   null/Object/Array  表头字段,null不显示表头,支持数据{key1:name1,key2:name2} 、[[name1,key1],[name2,key2]]、[name1,name2]
          list  Array  没有该参数，或js判断flase则自定义tbody，该参数为数组自动加载列表，此事thead只支持两种数据
          height  String  默认100%,整个tbale占满父级高度，指定值需有单位（100px/100vh），表示tbody最大高度
+         trKey  自动加载列表时tr的key字段，默认id,
+         select  是否打开raido/check选择  0:无选择 1:raido单选 2:checkbox多选
+         v-mdoel  select为1、2时，选中值
                 </code>
                 </pre>
             </p>
@@ -67,7 +96,15 @@ function tablePage2(){
             return {
                 list:list,
                 tdKey:{id:"编号",name:"姓名",sex:"性别",age:"年龄",city:"城市"},
+                selVal1:3,
+                selVal2:[],
             }
+        },
+        created(){
+            // setTimeout(()=>{
+            //     this.list.reverse();
+            // },10000)
+            
         }
     });
 }

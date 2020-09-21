@@ -298,6 +298,9 @@ a.checkbox, a.radio{
     color: var(--input-border-color);
     vertical-align: middle;
     padding-left: .22rem;
+    font-size: .16rem;
+    line-height: 1.5;
+    height: .24rem;
 }
 a.checkbox:before,a.radio:before{
     content: "";
@@ -384,23 +387,41 @@ a.radio.checked:after{
 
 
 /* lui-table */
-.lui-table .tr{
+.lui-table{
+    width: 100%;
     display: flex;
-    margin: 0 .2rem;    
+    flex-direction: column;
+    align-items: stretch;
+    font-size: .16rem;
+}
+.lui-table.border{
+    border-left: var(--table-border);
+    border-top: var(--table-border);
+}
+.lui-table.border .td, .lui-table.border .th {
+    border-right: var(--table-border);
+    border-bottom: var(--table-border);
+}
+.lui-table .tr{
+    width: 100%;
+    display: flex;
     line-height: 3;
 }
-.lui-table>.thead .tr{
-    background: var(--thead-bg);
-    border-bottom: var(--thead-border);
+.lui-table .thead .tr{
+    background: var(--table-head-bg);
+}
+.lui-table .tbody .tr:hover{
+    background: var(--table-tr-hover-bg);
 }
 .lui-table .td, .lui-table .th{
     padding:0 .14rem;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-}
-.td-flex-auto .td, .td-flex-auto .th{
     flex: 1;
+}
+.flex-none .td, .flex-none .th{
+    flex: unset;
 }
 .lui-table .tr-empty{
     border-bottom: none;

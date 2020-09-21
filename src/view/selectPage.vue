@@ -4,22 +4,34 @@
 
 <template>
 <div class="page content">
-    <h3><a >下拉选择</a></h3>
+    <h3><a >lui-select</a></h3>
     <ul>
         <li>
-            <p>lui-select</p>
+            <p>默认</p>
             <p>
                 <lui-select :list="list1" v-model="obj.s1" placeholder="请选择"></lui-select>
-            </p>
+            </p>      
+        </li>
+        <li>
+            <p>数据类型2</p>
             <p>
                 <lui-select :list="list2" v-model="obj.s2"></lui-select>
             </p>
+        </li>
+        <li>
+            <p>数据类型3</p>
             <p>
                 <lui-select :list="list3" :index="1" v-model="obj.s3"></lui-select>
             </p>
+        </li>
+        <li>
+            <p>参数index</p>
             <p>
                 <lui-select :list="list4" :index="-1" :search="true" v-model="obj.s4"></lui-select>
             </p>
+        </li>
+        <li>
+            <p>绑定数据</p>
             <p>
                 <input type="text" :value="JSON.stringify(obj)" readonly>
             </p>

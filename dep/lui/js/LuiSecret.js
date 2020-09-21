@@ -1,9 +1,13 @@
 //秘钥
 const key="34a32c01-f408-4e78-a787-edb5e37a50b3";
-
-function LuiSecret(){}
+let test = 1;
+function LuiSecret(){
+    test ++;
+    console.log(test);
+}
 
 LuiSecret.Crypto = function(text) {
+    
     let result = "";
     for (i = 0; i < text.length; i++) {             // 分解字符串为字符
         for (j = 0; j < key.length; j++) {
