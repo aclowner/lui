@@ -129,6 +129,7 @@
             return result;
         },
         toggle(v){
+            let index = this.indexOf(v);
             if(index<0)
                 this.push(v);
             else
@@ -173,7 +174,7 @@
             let d = this;
             d.setDate(d.getDate()+days); 
             //fmt参数可选，是否对返回对象进行格式化
-            return fmt ? d.Foramt(fmt) :d;
+            return fmt ? d.format(fmt) :d;
         }
     });
 

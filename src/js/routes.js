@@ -1,5 +1,5 @@
 
-const {welcome,buttonPage,checkPage,inputPage,selectPage,datePage,filePage,tablePage,tablePage2,treeSelect,popupPage} = NS.Component([
+const {welcome,buttonPage,checkPage,inputPage,selectPage,datePage,filePage,tablePage,tablePage2,treeSelect,popupPage,apiRequest,apiCookie,apiOther} = NS.Component([
     "../view/welcome",
     "../view/buttonPage",
     "../view/checkPage",
@@ -11,6 +11,9 @@ const {welcome,buttonPage,checkPage,inputPage,selectPage,datePage,filePage,table
     "../view/tablePage2",
     "../view/treeSelect",
     "../view/popupPage",
+    "../view/apiRequest",
+    "../view/apiCookie",
+    "../view/apiOther"
 ]);
 
 function routes(){
@@ -70,6 +73,21 @@ function routes(){
             path:"/popup",
             name:"popup",
             component:popupPage,
+        },
+        {
+            path:"/apiRequest",
+            name:"apiRequest",
+            component:apiRequest,
+        },
+        {
+            path:"/apiCookie",
+            name:"apiCookie",
+            component:apiCookie,
+        },
+        {
+            path:"/apiOther",
+            name:"apiOther",
+            component:apiOther,
         }
     ];
 

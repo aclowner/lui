@@ -7,39 +7,39 @@
     <h3><a >日期时间选择</a></h3>
     <ul>
         <li>
-            <p>lui-date</p>
+            <p>lui-date s1</p>
             <p>
                 <lui-datetime v-model="obj.s1" ></lui-datetime>
             </p>
         </li>
         <li>
-            <p>lui-date(yyyy-MM)</p>
+            <p>lui-date(yyyy-MM) s2</p>
             <p>
                 <lui-datetime v-model="obj.s2" format="yyyy-MM"></lui-datetime>
             </p>
         </li>
         <li>
-            <p>lui-date(yyyy)</p>
+            <p>lui-date(yyyy) s3</p>
             <p>
                 <lui-datetime v-model="obj.s3" format="yyyy"></lui-datetime>
             </p>
         </li>
         <li>
-            <p>lui-date(hh:mm)</p>
+            <p>lui-date(hh:mm) s4</p>
             <p>
                 <lui-datetime v-model="obj.s4" format="hh:mm"></lui-datetime>
             </p>
         </li>
         <li>
-            <p>lui-date(yyyy-MM-dd hh:mm)</p>
+            <p>lui-date(yyyy-MM-dd hh:mm) s5</p>
             <p>
                 <lui-datetime v-model="obj.s5" format="yyyy-MM-dd hh:mm"></lui-datetime>
             </p>
         </li>
         <li>
-            <p>lui-date(min/max)</p>
+            <p>lui-date(min/max) s6</p>
             <p>
-                <lui-datetime v-model="obj.s6" min="2020-09-02" :max="-1"></lui-datetime>
+                <lui-datetime v-model="obj.s6" :min="-5" :max="1"></lui-datetime>
             </p>
         </li>
         <li>

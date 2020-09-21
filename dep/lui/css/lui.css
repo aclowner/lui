@@ -470,19 +470,21 @@ a.radio.checked:after{
  /* 操作提升 */
 .hit{
     position: absolute;    
-    height: 42px;
+    font-size: .16rem;
+    line-height: 2;
     /* line-height: 42px; */
     left: 50%;
-    top: 40%;
+    top: 50%;
     text-align: center;
-    margin-left: -66px;
-    background: rgba(1,43,55,0.8);
+    transform: translate(-50%,-10vh);
+    background: var(--select-bg);
+    border: var(--input-border);
+    color: var(--input-color);
     opacity: 0;
     transition: all 0.5s;
     border-radius: 4px;
     z-index: 99;
-    color: #fff;
-    padding: 10px 20px;
+    padding: 2px 20px;
 }
 .hit.show{
    opacity: 1;

@@ -57,7 +57,10 @@
             param.LoginId = Lui.GetCookie(config.session.id) || "";
             param.Key = Lui.GetCookie(config.session.key) || "";
             //设置请求地址
-            cf.url = cf.path ? config.path[cf.path] : (config.path.http+config.path.api+cf.api);
+            if(cf.path)
+                cf.url = config.path[cf.path] ? config.path[cf.path]+(cf.api||"") : this.TrimPath(this.path,cf.path);
+            else
+                cf.url = config.path.http+config.path.api+cf.api;
             //请求返回promise对象
             let promise = new Promise((resolve, reject) => {
                 //cookie==true 从临时cookie取值,如果没有存储，则从接口取值且存储临时cookit
@@ -67,16 +70,20 @@
                 }
                 this.Request(cf, (re = {}) => {    
                     let result = JSON.parse(re);    
-                    if(result.ResultData.Request==undefined || result.ResultData.Request==0){
-                        //是否将数据存储到临时cookie
-                        cf.cookie && this.SetCookie(cf.api,JSON.stringify(result.Data),-1);
-                        resolve(result.Data);
-                    }                        
-                    else{
-                        //统一处理数据不成功，cf.errCall=true时返回页面自定义处理数据不成功
-                        !cf.errCall && this.Hit(result.ResultData.ErrMsg);
-                        reject(result.ResultData);
-                    }                        
+                    if(cf.resultFormat==true || cf.resultFormat==undefined){
+                        if(result.ResultData.Request==undefined || result.ResultData.Request==0){
+                            //是否将数据存储到临时cookie
+                            cf.cookie && this.SetCookie(cf.api,JSON.stringify(result.Data),-1);
+                            resolve(result.Data);
+                        }                        
+                        else{
+                            //统一处理数据不成功，cf.errCall=true时返回页面自定义处理数据不成功
+                            !cf.errCall && this.Hit(result.ResultData.ErrMsg);
+                            reject(result.ResultData);
+                        }
+                    }   
+                    else
+                        resolve(result);   
                 },
                 err => {
                     //同上异常处理
@@ -175,7 +182,7 @@
             setTimeout(function(){_hitDiv.remove();},3000);
         },
         Guid(){
-            return 'xxxxxxxx-xxxx-xxxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+            return 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
                 var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
                 return v.toString(16);
             });

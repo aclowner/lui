@@ -114,7 +114,7 @@ function luiTable(){
                     this.selVal = id; 
                 }
                 else{
-                    this.selVal.Toggle(id);
+                    this.selVal.toggle(id);
                 }               
                 this.$emit("input",this.selVal);
             }

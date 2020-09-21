@@ -30,7 +30,7 @@ function luiCheckboxGroup(){
         },
         methods:{
             ckClick(i,o){      
-                Array.isArray(o) ?  this.checkArr.toggleValue(o[0]+"") : this.checkArr.toggleValue(i+this.index+"");
+                Array.isArray(o) ?  this.checkArr.toggle(o[0]+"") : this.checkArr.toggle(i+this.index+"");
                 this.$emit("input",this.checkArr.join(","))
             }
         },

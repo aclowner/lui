@@ -26,7 +26,8 @@
 
     {"id":7,"name":"Lui Api","type":1},
     {"id":71,"name":"ajax请求","type":2,"page":"/apiRequest"},
-    {"id":72,"name":"日期时间","type":2,"page":"/apiDate"},
+    {"id":72,"name":"cookie","type":2,"page":"/apiCookie"},
+    {"id":72,"name":"其他","type":2,"page":"/apiOther"},
 
     {"id":8,"name":"原型扩展","type":1,"page":"/apiPrototype"},
     {"id":81,"name":"Int","type":2,"page":"/apiPrototype"},

@@ -572,9 +572,10 @@ function luiDatetime(){
                     if(tof=="string")
                         str = v;
                     else if(tof=="number")
-                        str = new Date().addDays(v);
+                        str = new Date().addDays(v,"yyyy-MM-dd");
                     else
                         return false;
+                    console.log(str)
                     return str;
                 },
                 yCloud(y){
