@@ -30,8 +30,9 @@
     {"id":72,"name":"其他","type":2,"page":"/apiOther"},
 
     {"id":8,"name":"原型扩展","type":1,"page":"/apiPrototype"},
-    {"id":81,"name":"Int","type":2,"page":"/apiPrototype"},
-    {"id":82,"name":"String","type":2,"page":"/apiPrototype"},
-    {"id":83,"name":"Object","type":2,"page":"/apiPrototype"},
-    {"id":83,"name":"Array","type":2,"page":"/apiPrototype"}
+    {"id":81,"name":"Int","type":2,"page":"/prototypeInt"},
+    {"id":82,"name":"String","type":2,"page":"/prototypeString"},
+    {"id":83,"name":"Array","type":2,"page":"/prototypeArray"},
+    {"id":83,"name":"Date","type":2,"page":"/prototypeDate"},
+    {"id":84,"name":"File","type":2,"page":"/prototypeFile"}
 ]

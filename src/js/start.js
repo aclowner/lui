@@ -18,13 +18,7 @@ NS.Component([
 ]);
 
 //临时代码
-Vue.component("scroll", {
-    template: `<div class="_scroll">
-            <div class="_con">
-                <slot></slot>
-            </div>
-        </div>`
-});
+
 
 const menus = NS.Load("../asset/json/menu.json");
 const routes = NS.Import("routes");

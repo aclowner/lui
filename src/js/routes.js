@@ -1,5 +1,7 @@
 
-const {welcome,buttonPage,checkPage,inputPage,selectPage,datePage,filePage,tablePage,tablePage2,treeSelect,popupPage,apiRequest,apiCookie,apiOther} = NS.Component([
+const {welcome,buttonPage,checkPage,inputPage,selectPage,datePage,filePage,tablePage,tablePage2,treeSelect,popupPage,apiRequest,apiCookie,apiOther,prototypeInt,prototypeString,
+    prototypeArray,prototypeDate,prototypeFile
+    } = NS.Component([
     "../view/welcome",
     "../view/buttonPage",
     "../view/checkPage",
@@ -13,7 +15,12 @@ const {welcome,buttonPage,checkPage,inputPage,selectPage,datePage,filePage,table
     "../view/popupPage",
     "../view/apiRequest",
     "../view/apiCookie",
-    "../view/apiOther"
+    "../view/apiOther",
+    "../view/prototypeInt",
+    "../view/prototypeString",
+    "../view/prototypeArray",
+    "../view/prototypeDate",
+    "../view/prototypeFile"
 ]);
 
 function routes(){
@@ -88,6 +95,31 @@ function routes(){
             path:"/apiOther",
             name:"apiOther",
             component:apiOther,
+        },
+        {
+            path:"/prototypeInt",
+            name:"prototypeInt",
+            component:prototypeInt,
+        },
+        {
+            path:"/prototypeString",
+            name:"prototypeString",
+            component:prototypeString,
+        },
+        {
+            path:"/prototypeArray",
+            name:"prototypeArray",
+            component:prototypeArray,
+        },
+        {
+            path:"/prototypeDate",
+            name:"prototypeDate",
+            component:prototypeDate,
+        },
+        {
+            path:"/prototypeFile",
+            name:"prototypeFile",
+            component:prototypeFile,
         }
     ];
 

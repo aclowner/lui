@@ -18,14 +18,14 @@
         </div>
     </div>
     <div class="tbody _scroll">
-        <div class="tr tr-empty" v-if="list&&list.length==0"><span>暂无数据</span></div>
+        <div class="tr tr-empty" v-if="list&&list.length==0"><span class="td">暂无数据</span></div>
         <transition-group v-else name="table-tr" tag="div" mode='in-out' class="_con" :style="{'maxHeight':height}">
             <template v-if="list">
-                <div class="tr" v-for="tr in listSel" :key="tr[trKey]">
+                <div class="tr" v-for="(tr,tri) in listSel" :key="tr[trKey]||tri">
                     <span class="td" v-for="(td,tdi) in headTh" :key="tdi" :class="['th','td-'+tdi,td[1]?'td-'+td[1]:'']">
                         <a v-if="select==1&&tdi==0" :class="['radio',{checked:selVal==tr[trKey]}]" @click="trCheckClick(tr[trKey],1)"></a>
                         <a v-if="select==2&&tdi==0" :class="['checkbox',{checked:selVal.includes(tr[trKey])}]" @click="trCheckClick(tr[trKey],2)"></a>
-                        {{tr[td[1]]}}
+                        {{(tr[td[1]]||"--")}}
                     </span>
                 </div>
             </template>
@@ -61,13 +61,13 @@ function luiTable(){
                 if(!this.thead || this.thead.length == 0)
                     return false;
                 if(this.thead.constructor == Array){
-                    return this.thead.map(o=>{
+                    return this.thead.map((o,i)=>{
                         if(!o)
                             return [null];
                         if(o.constructor == Array)
                             return o.length == 2 ? [o[0],o[1]] : [null];
                         else
-                            return [o+""]
+                            return [o,i]
                     });
                 }
                 else if(this.thead.constructor === Object){

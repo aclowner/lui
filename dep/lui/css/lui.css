@@ -423,11 +423,6 @@ a.radio.checked:after{
 .flex-none .td, .flex-none .th{
     flex: unset;
 }
-.lui-table .tr-empty{
-    border-bottom: none;
-    width: 100%;
-    text-align: center;
-}
 .lui-table ._scroll ._bar{
     width: 6px;
 }

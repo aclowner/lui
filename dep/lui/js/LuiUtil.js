@@ -210,13 +210,4 @@
         }
     });
 
-    Object.assign(JSON,{
-        strParse(){
-            return JSON.parse(JSON.stringify(this));
-        },
-        fileString(json){
-            return (json.type||"")+"/"+(json.name||"")+"/"+(json.uname||"")+"/"+(json.size||"");
-        }
-    })
-
 })();

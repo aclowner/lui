@@ -231,7 +231,7 @@
                 }
             })(console.log);
         },
-        InitScroll(){
+        InitScroll(){            
             let sClass = this.sClass;
                 _sMouseWheel = "mousewheel",
                 _scrollMove = {};
@@ -338,6 +338,40 @@
                 }
             }
         },
+        VueComponent(){
+            if(!Vue)
+                return;
+            //滚动组件
+            Vue.component("scroll", {
+                template: `<div class="_scroll">
+                        <div class="_con">
+                            <slot></slot>
+                        </div>
+                    </div>`
+            });
+        },
+        VueDerective(){
+            if(!Vue)
+                return;
+            //尺寸变化指令
+            Vue.directive('resize', {
+                bind(el, binding) {
+                  let width = '', height = '';
+                  function get(){
+                    const style = document.defaultView.getComputedStyle(el);
+                    if (width !== style.width || height !== style.height) {
+                        binding.value({width:style.width, height:style.height});
+                    }
+                    width = style.width;
+                    height = style.height;
+                  }
+                  el.__vueReize__ = setInterval(get, 200);
+                },
+                unbind(el) {
+                  clearInterval(el.__vueReize__);
+                }
+            });
+        },
         Init() {
             //加载配置文件
             this.LoadConfig();      
@@ -345,6 +379,11 @@
             this.InitScroll(); 
 
             //this.Log();
+
+            //lui依赖vue组件
+            this.VueComponent();
+            //lui依赖vue指令
+            this.VueDerective();
         }
     });
     

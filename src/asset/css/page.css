@@ -134,3 +134,11 @@ span.remark:before{
     content: "注：";
     color: tomato;
 }
+
+.div-table-fun{
+    padding: 20px 0;
+}
+.table-fun .td-0{
+    flex: unset;
+    width: 300px;
+}
