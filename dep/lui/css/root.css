@@ -18,8 +18,11 @@
     --input-active-color: #3981e3;
     --input-color:#485778;
 
-    --select-bg:#fff;    
-    --scroll-bar: #bbb;
+    --scroll-bar: #d9d9d9;
+    --scroll-bar-hover: #ccc;
+    --scroll-bar-press: #c0c0c0;
+
+    --select-bg:#fff; 
     --popup-bg: #fff;
     --popup-color: #5e6c84;
 

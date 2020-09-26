@@ -19,7 +19,7 @@
                 <lui-tree :list="tree" :check="true" v-model="val"></lui-tree>
             </div>
             <p>
-                <lui-tag-input before="绑定值"><input type="text" :value="val"></lui-tag-input>
+                <lui-input-tag before="绑定值"><input type="text" :value="val"></lui-input-tag>
             </p>
         </li>
     </ul>

@@ -54,8 +54,8 @@
             let config = this.config;
                 param = cf.data || {};
             //为请求参数添加key，loginid
-            param.LoginId = Lui.GetCookie(config.session.id) || "";
-            param.Key = Lui.GetCookie(config.session.key) || "";
+            param.LoginId = this.GetCookie(config.session.id) || "";
+            param.Key = this.GetCookie(config.session.key) || "";
             //设置请求地址
             if(cf.path)
                 cf.url = config.path[cf.path] ? config.path[cf.path]+(cf.api||"") : this.TrimPath(this.path,cf.path);
@@ -277,6 +277,7 @@
                         _scrollMove.barOT = target.offsetTop;
                         _scrollMove.bar = target;
                         _scrollMove.con = con;
+                        _scrollMove.bar.classList.add("bar-press");
                         con.setAttribute("onselectstart", "return false;");  //chrome禁止内容选中
                         con.setAttribute("unselectable", "on");              //IE禁止内容选中
                         con.classList.add("user-unsel");               //ff禁止内容选中
@@ -305,6 +306,7 @@
                     _scrollMove.con.removeAttribute("onselectstart");
                     _scrollMove.con.removeAttribute("unselectable");
                     _scrollMove.con.classList.remove("user-unsel");
+                    _scrollMove.bar.classList.remove("bar-press");
                     body.removeEventListener("mousemove", scrollMouseMove);
                     body.removeEventListener("mouseup", scrollMouseUp);
                 }
@@ -343,11 +345,12 @@
                 return;
             //滚动组件
             Vue.component("scroll", {
-                template: `<div class="_scroll">
-                        <div class="_con">
-                            <slot></slot>
-                        </div>
-                    </div>`
+                template: "<div class='_scroll'><div class='_con'><slot></slot></div></div>"
+            });
+
+            Vue.component("form-row", {
+                props:["name"],
+                template: "<div class='form-row'><div class='key' v-if='name&&name.length>0'>{{name}}</div><div class='val'><slot></slot></div></div>"
             });
         },
         VueDerective(){
@@ -371,6 +374,47 @@
                   clearInterval(el.__vueReize__);
                 }
             });
+
+            Vue.directive("drag",function(el,bindings){
+                el.onmousedown = function(e){          
+                    let {arg,value} = bindings;   
+                    if(value=="false" || value==false || value==0 || value=="0")
+                        return;          
+                    let elM = arg&&arg.parent ? el.parentNode :el;          
+                    var disx = e.pageX - elM.offsetLeft;
+                    var disy = e.pageY - elM.offsetTop;
+                    document.onmousemove = function (e){
+                        elM.style.left = e.pageX - disx+'px';
+                        elM.style.top = e.pageY - disy+'px';
+                    }
+                    document.onmouseup = function(){
+                        document.onmousemove = document.onmouseup = null;
+                    }
+                }
+            });
+        },
+        TransListData(data,index){
+            let nv = data;         
+            if(!nv || !Array.isArray(nv))
+                return [];
+            else{
+                return nv.map((o,i)=>{
+                    //为了减少参数，将index作了特殊使用，当需要使用的值为索引时，index为>=0的整数，获取的值为选项索引+index；当index === -1时，表示值为名称
+                    let isName = index === -1;
+                    //选项数据为错误数据，则添加错误选项 -2
+                    if(!o)
+                        return [-2,""];
+                    //选项为对象  则取id/name或者Id/Name，没有id/Id 则为错误数据
+                    if(o.constructor === Object)
+                        return [isName?(o.name||o.Name||-2):(o.id||o.Id||-2)+"",o.name||o.Name];
+                    //选项为数组  只支持[value,name] --暂未作详细判断
+                    else if(o.constructor == Array)
+                        return o.length==2 ? o : [-2,""];
+                    //简单值类型  则取索引作为值
+                    else
+                        return [isName?o:(i+index+""),o];
+                });
+            }
         },
         Init() {
             //加载配置文件
@@ -443,6 +487,9 @@
         Guid(){
             return LuiManager.instance.Guid();
         },
+        TransListData(data,index){
+            return LuiManager.instance.TransListData(data,index)
+        }
     });    
 
     new Lui();

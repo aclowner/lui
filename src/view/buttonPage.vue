@@ -14,12 +14,12 @@ p>button{
         <li>
             <p><strong>默认背景button</strong></p>
             <p>
-                <button class="btn btn-lg">default lg</button>
-                <button class="btn blue btn-lg">blue lg</button>
-                <button class="btn green btn-lg">green lg</button>  
-                <button class="btn yellow btn-lg">yellow lg</button>
-                <button class="btn orange btn-lg">orange lg</button>
-                <button class="btn btn-lg" disabled>default lg is disable</button>
+                <button class="btn btn-lg">默认大</button>
+                <button class="btn blue btn-lg">蓝色大</button>
+                <button class="btn green btn-lg">绿色大</button>  
+                <button class="btn yellow btn-lg">黄色大</button>
+                <button class="btn orange btn-lg">橙色大</button>
+                <button class="btn btn-lg" disabled>不可用</button>
                
             </p>
             <p>

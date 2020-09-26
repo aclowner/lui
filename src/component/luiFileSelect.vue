@@ -68,7 +68,7 @@ function luiFileSelect(){
             addImg(e,i){
                 this.update = true;
                 for(let file of e.target.files){
-                    let vf = file.ToJson();
+                    let vf = file.toJson();
                     this.fileArr.push(vf);                 
                 }
             },

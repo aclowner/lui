@@ -42,9 +42,6 @@ function welcome(){
     let LuiSecret = NS.Import("../../dep/lui/js/LuiSecret");
     Object.assign(this,{
         created(){
-            new LuiSecret();
-            new LuiSecret();
-            new LuiSecret();
             setTimeout(() => {
                 let ks = document.querySelector(".btn-start");
                 let t = Tween.Add({x:20}, {repeat:-1,yoyo:true});

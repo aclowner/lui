@@ -58,7 +58,7 @@
     transform: translate(50%,-50%);
 }
 .lui-select li:hover{
-    background: rgba(0, 0, 0, .2);
+    background: rgba(0, 0, 0, .06);
 }
 .lui-select li.active{
     color: var(--active-color);
@@ -73,7 +73,7 @@
         <input type="text" v-model="text" :readonly="!search" @focus="inputFocus" @blur="inputBlur" @mousedown="inputMD" :placeholder="placeholder"/>
         <div class="_scroll sel-list" v-show="show" tabindex="99" @blur="show=false" @mousedown="evTag='lmd'">
             <ul class='_con'>
-                <li class="disable" v-if='!listSels||listSels.length==0'>暂无数据</li>
+                <li class="disable" v-if='!optionArrShow||optionArrShow.length==0'>暂无数据</li>
                 <template v-else>                    
                     <li v-for="(lo,li) in optionArrShow" :key="li" :class="{active:lo[0]==value}" @click="liClick(lo)">{{lo[1]}}</li>
                 </template>
@@ -92,7 +92,7 @@ function luiSelect(){
         },
         props:{
             'value':"",
-            'list':{default:[]},                       //下拉数组       
+            'list':{default(){return []}},                       //下拉数组       
             "index":{default:0},                //该参数为整个组件的灵魂，有意想不到的效果
             'placeholder':'',                   //输入框提示文字
             'search':{default:false},
@@ -130,22 +130,24 @@ function luiSelect(){
             liClick(lo){
                 //下拉选项点击选中          
                 //关闭下拉框
-                this.show = false;   
+                this.show = false;
                 let activeValue = lo[0];
-                let activeIndex = this.optionArr.find(o=>o[0]==activeValue);
-                let dataSource = this.list[activeIndex];
+                if(activeValue == this.selVal)
+                    return;
+                let activeIndex = this.optionArr.findIndex(o=>o[0]==activeValue);
+                let dataSource = this.list[activeIndex];                
                 this.selVal = activeValue;
                 this.$emit("input",lo[0]);          //更新选择值
                 this.$emit('change',dataSource,activeIndex);             //发出选择时间change                
             },
-            setText(nv){                
+            setText(nv){             
                 //设置输入框显示值      
                 this.textTag = "st";   //text赋值为选择或数据绑定，非搜索，用于搜索判断          
-                let val = nv || "";
+                let val = nv || this.value || "";
                 if(this.optionArr.length==0 || val=="" || val==undefined){
                     this.text = ""; 
                     return;
-                }                                   
+                }                             
                 let activeOption = this.optionArr.find(o=>o[0]==val);
                 this.text = activeOption[1];                
             }
@@ -153,27 +155,30 @@ function luiSelect(){
         watch:{
             list:{
                 //监听下拉列表数据，立即监听
-                handler:function(nv,ov){                    
-                    if(!nv || !Array.isArray(nv))
-                        this.optionArr = [];
-                    else{
-                        this.optionArr = nv.map((o,i)=>{
-                            //为了减少参数，将index作了特殊使用，当需要使用的值为索引时，index为>=0的整数，获取的值为选项索引+index；当index === -1时，表示值为名称
-                            let isName = this.index === -1;
-                            //选项数据为错误数据，则添加错误选项 -2
-                            if(!o)
-                                return [-2,""];
-                            //选项为对象  则取id/name或者Id/Name，没有id/Id 则为错误数据
-                            if(o.constructor === Object)
-                                return [isName?(o.name||o.Name||-2):(o.id||o.Id||-2),o.name||o.Name];
-                            //选项为数组  只支持[value,name] --暂未作详细判断
-                            else if(o.constructor == Array)
-                                return o.length==2 ? o : [-2,""];
-                            //简单值类型  则取索引作为值
-                            else
-                                return [isName?o:(i+this.index+""),o];
-                        });
-                    }
+                handler:function(nv,ov){       
+                    if(JSON.stringify(nv) == JSON.stringify(ov))   
+                        return;         
+                    this.optionArr = Lui.TransListData(nv,this.index);
+                    // if(!nv || !Array.isArray(nv))
+                    //     this.optionArr = [];
+                    // else{
+                    //     this.optionArr = nv.map((o,i)=>{
+                    //         //为了减少参数，将index作了特殊使用，当需要使用的值为索引时，index为>=0的整数，获取的值为选项索引+index；当index === -1时，表示值为名称
+                    //         let isName = this.index === -1;
+                    //         //选项数据为错误数据，则添加错误选项 -2
+                    //         if(!o)
+                    //             return [-2,""];
+                    //         //选项为对象  则取id/name或者Id/Name，没有id/Id 则为错误数据
+                    //         if(o.constructor === Object)
+                    //             return [isName?(o.name||o.Name||-2):(o.id||o.Id||-2),o.name||o.Name];
+                    //         //选项为数组  只支持[value,name] --暂未作详细判断
+                    //         else if(o.constructor == Array)
+                    //             return o.length==2 ? o : [-2,""];
+                    //         //简单值类型  则取索引作为值
+                    //         else
+                    //             return [isName?o:(i+this.index+""),o];
+                    //     });
+                    // }
                     this.optionArrShow = this.optionArr;
                     this.setText();
                 },
@@ -182,7 +187,7 @@ function luiSelect(){
             value:{
                 handler:function(nv,ov){
                     if(nv != this.selVal)
-                    this.selVal = nv;
+                        this.selVal = nv;
                 },
                 immediate: true                
             },

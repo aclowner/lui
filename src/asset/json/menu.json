@@ -11,6 +11,7 @@
     {"id":33,"name":"下拉选择","type":2,"page":"/select"},
     {"id":34,"name":"时间日期选择","type":2,"page":"/date"},
     {"id":35,"name":"文件选择","type":2,"page":"/file"},
+    {"id":36,"name":"表单示例","type":2,"page":"/form"},
 
     {"id":4,"name":"列表","type":1},
     {"id":41,"name":"分页列表","type":2,"page":"/table"},
@@ -20,14 +21,13 @@
     {"id":52,"name":"树状选择","type":2,"page":"/treeSelect"},
 
     {"id":6,"name":"弹出层","type":1},
-    {"id":61,"name":"弹出窗口","type":2,"page":"/popupForm"},
-    {"id":62,"name":"弹出提示","type":2,"page":"/alert"},
+    {"id":61,"name":"弹出窗口","type":2,"page":"/popupPage"},
     {"id":63,"name":"弹出文件查看","type":2,"page":"/popupFile"},
 
     {"id":7,"name":"Lui Api","type":1},
     {"id":71,"name":"ajax请求","type":2,"page":"/apiRequest"},
     {"id":72,"name":"cookie","type":2,"page":"/apiCookie"},
-    {"id":72,"name":"其他","type":2,"page":"/apiOther"},
+    {"id":73,"name":"其他","type":2,"page":"/apiOther"},
 
     {"id":8,"name":"原型扩展","type":1,"page":"/apiPrototype"},
     {"id":81,"name":"Int","type":2,"page":"/prototypeInt"},

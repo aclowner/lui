@@ -3,7 +3,7 @@
 </style>
 
 <template>
-<div class="lui-tag-input">
+<div class="lui-input-tag">
     <span class="tag before" v-if="before">{{before}}</span>
     <slot></slot>
     <span class="tag after" v-if="after">{{after}}</span>
@@ -11,7 +11,7 @@
 </template>
 
 <script>
-function luiTagInput(){
+function luiInputTag(){
     Object.assign(this,{
         props:{
             before:{default:""},

@@ -4,8 +4,8 @@
 
 <template>
 <div class="checkbox-group">    
-    <a :class="['checkbox',{checked:Array.isArray(ck)?checkArr.includes(ck[0]+''):checkArr.includes(ci+index+'')}]" v-for="(ck,ci) in list" :key="ci" @click="ckClick(ci,ck)">
-        <span>{{Array.isArray(ck)?ck[1]:ck}}</span>    
+    <a :class="['checkbox',{checked:checkArr.includes(ck[0])}]" v-for="(ck,ci) in optionArr" :key="ci" @click="ckClick(ci,ck)">
+        <span>{{ck[1]}}</span>    
     </a> 
 </div>
 </template>
@@ -25,23 +25,34 @@ function luiCheckboxGroup(){
         },
         data(){
             return{
+                optionArr:[],
                 checkArr:[],
             }
         },
         methods:{
             ckClick(i,o){      
-                Array.isArray(o) ?  this.checkArr.toggle(o[0]+"") : this.checkArr.toggle(i+this.index+"");
+                this.checkArr.toggle(o[0]);
                 this.$emit("input",this.checkArr.join(","))
             }
         },
         watch:{
             model:{
                 handler:function(nv,ov){
-                    let newArr = nv ? nv.split(",") : [];
-                    if(this.checkArr != newArr)
+                    let checkStr = this.checkArr.join(",");
+                    if(nv != checkStr){
+                        let newArr = nv ? nv.split(",") : [];
                         this.checkArr = newArr;
+                    }                        
                 },
                 immediate: true
+            },
+            list:{
+                handler(nv,ov){
+                    if(JSON.stringify(nv) == JSON.stringify(ov))   
+                        return;         
+                    this.optionArr = Lui.TransListData(nv,this.index);
+                },
+                immediate:true
             }
         }
     });

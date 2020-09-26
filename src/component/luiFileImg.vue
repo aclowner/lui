@@ -5,8 +5,8 @@
     position: relative;
 }
 .a-img-add, .div-img-added{
-    width: 1.2rem;
-    height: 1.2rem;
+    width: 1rem;
+    height: 1rem;
     border: var(--input-border);    
     position: relative;
 }
@@ -27,8 +27,8 @@
     margin-right: .2rem;
 }
 .div-img-added img{
-    max-width: 1.16rem;
-    max-height: 1.16rem;
+    max-width: .96rem;
+    max-height: .96rem;
 }
 .div-img-added-ope{
     position: absolute;
@@ -104,7 +104,7 @@ function luiFileImg(){
             addImg(e,i){
                 this.update = true;
                 for(let file of e.target.files){
-                    let vf = file.ToJson();
+                    let vf = file.toJson();
                     let reader = new FileReader();
                     reader.readAsDataURL(file);
                     reader.onload=(e)=>{

@@ -4,8 +4,8 @@
 
 <template>
 <div class="radio-group">
-    <a :class="['radio',{checked:Array.isArray(ck)?(checkVal==ck[0]+''):(checkVal==ci+index+'')}]" v-for="(ck,ci) in list" :key="ci" @click="ckClick(ci,ck)">
-        <span>{{Array.isArray(ck)?ck[1]:ck}}</span>    
+    <a :class="['radio',{checked:checkVal==ck[0]}]" v-for="(ck,ci) in optionArr" :key="ci" @click="ckClick(ci,ck)">
+        <span>{{ck[1]}}</span>    
     </a>
 </div>
 </template>
@@ -25,12 +25,13 @@ function luiRadioGroup(){
         },
         data(){
             return {
+                optionArr:[],
                 checkVal:""
             }
         },
         methods:{
             ckClick(i,o){      
-                Array.isArray(o) ?  (this.checkVal = o[0]+"") : (this.checkVal = i+this.index+"");
+                this.checkVal = o[0];
                 this.$emit("input",this.checkVal);
             }
         },
@@ -42,6 +43,14 @@ function luiRadioGroup(){
                         this.checkVal = newVal;
                 },
                 immediate: true
+            },
+            list:{
+                handler(nv,ov){
+                    if(JSON.stringify(nv) == JSON.stringify(ov))   
+                        return;         
+                    this.optionArr = Lui.TransListData(nv,this.index);
+                },
+                immediate:true
             }
         }
     });

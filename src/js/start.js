@@ -6,8 +6,8 @@ NS.Component([
     "../component/luiCheckboxGroup",
     "../component/luiRadioGroup",
     "../component/luiSwitch",
-    "../component/luiSearch",
-    "../component/luiTagInput",
+    "../component/luiInputIcon",
+    "../component/luiInputTag",
     "../component/luiSelect",
     "../component/luiDatetime",
     "../component/luiFileImg",
@@ -15,10 +15,8 @@ NS.Component([
     "../component/luiTablePaging",
     "../component/luiTable",
     "../component/luiTree",
+    "../component/luiLayer",
 ]);
-
-//临时代码
-
 
 const menus = NS.Load("../asset/json/menu.json");
 const routes = NS.Import("routes");
@@ -45,7 +43,6 @@ function start(){
         watch:{
             $route(to,from){
                 this.route = to;
-                console.log(1,to,from);
             }
         },
     });

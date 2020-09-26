@@ -24,19 +24,22 @@
         <li>
             <p>搜索</p>
             <p>
-                <lui-search></lui-search>
+                <lui-input-icon icon="icon-search"><input type="text" v-model="search"></lui-input-icon>
+            </p>
+            <p>
+                <lui-input-icon icon="icon-search" position="left"><input type="text"></lui-input-icon>
             </p>
         </li>
         <li>
             <p>前/后标签</p>
             <p>
-                <lui-tag-input before="前面内容"><input type="text"></lui-tag-input>
+                <lui-input-tag before="前面内容"><input type="text"></lui-input-tag>
             </p>
             <p>
-                <lui-tag-input after="后面内容"><input type="text"></lui-tag-input>
+                <lui-input-tag after="后面内容"><input type="text"></lui-input-tag>
             </p>
             <p>
-                <lui-tag-input before="电子邮件" after="@qq.com"><input type="text"></lui-tag-input>
+                <lui-input-tag before="电子邮件" after="@qq.com"><input type="text"></lui-input-tag>
             </p>
         </li>
     </ul>
@@ -46,7 +49,13 @@
 <script>
 function inputPage(){
     Object.assign(this,{
-        
+        data(){
+            return {
+                search:""
+            }
+        },
+        watch:{
+        }
     });
 }
 </script>

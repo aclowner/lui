@@ -16,9 +16,9 @@
 .lui-datetime .i-datetime{
     pointer-events: none;
     position: absolute;
-    right: 16px;
+    right: .1rem;
     top: 50%;
-    transform: translate(50%,-50%);
+    transform: translateY(-50%);
     font-size: .20rem;
     color: var(--active-color);
 }
@@ -560,7 +560,6 @@ function luiDatetime(){
                         minB = new Date(ddd).getTime() > this.minVal;
                     if(this.maxVal)
                         maxB = new Date(ddd).getTime() < this.maxVal;
-                    console.log(minB,maxB,this.minVal,this.maxVal)
                     return minB && maxB;
                 },
                 getMinMaxVal(v){
@@ -568,14 +567,12 @@ function luiDatetime(){
                         return false;                    
                     let tof = typeof v,
                         str = "";
-                    console.log(v,tof);
                     if(tof=="string")
                         str = v;
                     else if(tof=="number")
                         str = new Date().addDays(v,"yyyy-MM-dd");
                     else
                         return false;
-                    console.log(str)
                     return str;
                 },
                 yCloud(y){

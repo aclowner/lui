@@ -2,7 +2,7 @@
 <style>
 .lui-switch{
     min-width: .6rem;
-    height: .32rem;
+    height: .3rem;
     border: var(--input-border);
     border-radius: .2rem / .17rem;
     display: flex;
@@ -10,10 +10,12 @@
     justify-content: space-between;
     position: relative;
     cursor: pointer;
-    transition: background .4s;
+    line-height: 1.5;
+    transition: all .5s ease-in-out;
 }
 .lui-switch span{
     opacity: 0;
+    font-size: 0;
 }
 .lui-switch span.offt{
     padding: 0 .08rem 0 .16rem ;
@@ -23,6 +25,7 @@
 }
 .lui-switch span.show{
     opacity: 1;
+    font-size: .16rem;
 }
 .lui-switch:before{
     content: "";
@@ -49,9 +52,11 @@
 </style>
 
 <template>
-<div :class="['lui-switch',{on:val}]" @click="change">    
-    <span :class="['offt',{show:!val}]">{{off}}</span>
-    <span :class="['ont',{show:val}]">{{on}}</span>
+<div class="lui-switch-flex flex">
+    <div :class="['lui-switch',{on:val}]" @click="change">    
+        <span :class="['offt',{show:!val}]">{{off}}</span>
+        <span :class="['ont',{show:val}]">{{on}}</span>
+    </div>
 </div>
 </template>
 
