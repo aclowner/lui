@@ -1,6 +1,6 @@
 
 // Lui = NS.Import("../../dep/lui/js/Lui");
-
+Lui.Waiting(1);
 NS.Component([
     "../component/luiCheckbox",
     "../component/luiCheckboxGroup",
@@ -45,5 +45,8 @@ function start(){
                 this.route = to;
             }
         },
-    });
+        mounted(){
+            Lui.Waiting(0);
+        }
+    });    
 }
