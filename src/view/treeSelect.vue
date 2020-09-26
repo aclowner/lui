@@ -36,8 +36,12 @@ function treeSelect(){
             }
         },
         created(){
-            let json = NS.Load("src/asset/json/tree.json");
-            this.tree = json.toTree();
+             Lui.Get({
+                path:"src/asset/json/tree.json",
+                resultFormat:false
+            }).then(re=>{
+                this.tree = re.toTree();
+            });
         }
     });
 }

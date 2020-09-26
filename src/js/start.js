@@ -18,7 +18,6 @@ NS.Component([
     "../component/luiLayer",
 ]);
 
-const menus = NS.Load("../asset/json/menu.json");
 const routes = NS.Import("routes");
 
 Tween =  NS.Import("../../dep/namespace/Tween");
@@ -33,10 +32,17 @@ function start(){
         el:"#vue",
         router:router,
         data:{
-            menus:menus,
+            menus:[],
             route:{},
         },
         created(){ 
+            Lui.Get({
+                path:"src/asset/json/menu.json",
+                resultFormat:false
+            }).then(re=>{
+                this.menus = re;
+                Lui.Waiting(0);
+            });
         },
         methods:{
         },
@@ -45,8 +51,7 @@ function start(){
                 this.route = to;
             }
         },
-        mounted(){
-            Lui.Waiting(0);
+        mounted(){            
         }
     });    
 }
