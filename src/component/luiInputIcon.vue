@@ -20,7 +20,7 @@
 <template>
 <div :class="['lui-input-icon','icon-pos-'+position]">   
     <slot></slot>
-    <i v-if="icon" :class="['iconfont',icon]" ></i>
+    <i v-if="icon" :class="['icon',icon]" ></i>
 </div>
 </template>
 

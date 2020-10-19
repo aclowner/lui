@@ -34,7 +34,7 @@
 <div :class="['lui-popup',{'popup-drag':isdrag.parent==true}]" @mousedown="setActive">
     <div class="lui-popup-title flex" v-drag:[isdrag]="drag||false">
         <span>{{title}}</span>
-        <a class="iconfont icon-close" @click.stop="close()"></a>
+        <a class="icon i-close" @click.stop="close()"></a>
     </div>
     <div class="lui-popup-body">
         <div class="_scroll"><div class="_con">

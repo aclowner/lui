@@ -49,10 +49,10 @@
         <li>
             <p>列表选择数据</p>
             <p>
-                <lui-tag-input before="单选值"><input type="text" :value="selVal1"></lui-tag-input>
+                <lui-input-tag before="单选值"><input type="text" :value="selVal1"></lui-input-tag>
             </p>
             <p>
-                <lui-tag-input before="多选值"><input type="text" :value="selVal2.join(',')"></lui-tag-input>
+                <lui-input-tag before="多选值"><input type="text" :value="selVal2.join(',')"></lui-input-tag>
             </p>
             
         </li>

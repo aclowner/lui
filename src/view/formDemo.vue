@@ -9,6 +9,9 @@
     <form-row name="部门选择"><lui-select :list="['市场部','开发部','运营部']" v-model="data.dept"></lui-select></form-row>
     <form-row name="出生日期"><lui-datetime v-model="data.birth"></lui-datetime></form-row>
     <form-row name="头像"><lui-file-img></lui-file-img></form-row>
+    <form-row name="颜色选择">
+        <lui-color v-model="data.color"></lui-color>
+    </form-row>
     <form-row name="性别"><lui-radio-group :list="['男','女']" v-model="data.sex"></lui-radio-group></form-row>
     <form-row name="爱好"><lui-checkbox-group :list="['游戏','美食','看书']" :index="-1" v-model="data.favo"></lui-checkbox-group></form-row>
     <form-row name="是否结婚"><lui-switch v-model="data.marry" on="已婚" off="未婚"></lui-switch></form-row>
@@ -24,11 +27,17 @@
         </div>
     </form-row>
     <form-row name="个人介绍"><textarea ></textarea></form-row>
+
+    <form-row name="评价">
+        <lui-star v-model="data.star" :total="5">{{data.star}}星</lui-star>&nbsp;&nbsp;
+    </form-row>
+
+    
+
     <form-row button>
         <button class="btn btn-border green" @click="save">保存</button>
         <button class="btn btn-border orange" @click="clear">清空</button>
     </form-row>
-
 
     <lui-layer ref="layer" ></lui-layer>
 </div>

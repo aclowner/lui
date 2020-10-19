@@ -323,7 +323,7 @@
 <template>
 <div class="lui-datetime">
     <input type="text" @focus="inputFocus" @blur="inputBlur" @mousedown="inputMD" :value="val" readonly/>
-    <i class="iconfont icon-calendar i-datetime"></i>
+    <i class="icon i-calendar i-datetime"></i>
     <div class="datetime-select" v-show="show" tabindex="99" @blur="dateBlur" @mousedown="dateMD">
         <template v-if="type!=4&&active!=6">
             <div class="date-top-btn">

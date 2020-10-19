@@ -1,7 +1,7 @@
 @import url("root.css");
 @import url("reset.css");
 @import url("loading.css");
-@import url("//at.alicdn.com/t/font_2041675_2jp1adnabxi.css");
+@import url("//at.alicdn.com/t/font_2103132_tc8mhv1ydat.css");
 /* lui基本样式 */
 /* flex */
 .flex{
@@ -91,6 +91,7 @@ button:active {
     background: #efefef;    
     border: none;
     white-space: nowrap;
+    text-align: center;
 }
 .btn:hover{
     /* box-shadow: 0 0 5px 2px rgba(0,0,0,0.12), 0 17px 50px 0 rgba(0,0,0,0.1); */
@@ -160,7 +161,7 @@ button:active {
 .btn.btn-sm{    
     padding-left: .08rem;
     padding-right: .08rem;
-    min-width: .8rem;
+    min-width: .62rem;
     font-size: .16rem;
     line-height: 1.5;
 }

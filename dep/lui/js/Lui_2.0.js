@@ -34,6 +34,7 @@
             this.Request(cf,re=>{
                 this.config = JSON.parse(re);
             },er=>{
+                this.config = null;
                 return console.log("error", "未找到Lui配置文件，部分功能不可用！");
             }); 
         },
@@ -63,14 +64,15 @@
                 cf.url = config.path.http+config.path.api+cf.api;
             //请求返回promise对象
             let promise = new Promise((resolve, reject) => {
-                //cookie==true 从临时cookie取值,如果没有存储，则从接口取值且存储临时cookit
+                //cookie==true 从临时cookie取值,如果没有存储，则从接口取值且存储临时cookie
                 if(cf.cookie){
                     if(this.GetCookie(cf.api))
                         return resolve(JSON.parse(this.GetCookie(cf.api)));
                 }
                 this.Request(cf, (re = {}) => {    
                     let result = JSON.parse(re);    
-                    if(cf.resultFormat==true || cf.resultFormat==undefined){
+                    //resultFormat 对返回结果按照特定格式处理，不处理传入false
+                    if(cf.resultFormat == true || cf.resultFormat == undefined){
                         if(result.ResultData.Request==undefined || result.ResultData.Request==0){
                             //是否将数据存储到临时cookie
                             cf.cookie && this.SetCookie(cf.api,JSON.stringify(result.Data),-1);
@@ -153,7 +155,9 @@
             this.SetCookie(pname+"_"+cname,"",1);
         },
         Waiting(s){
+            //加载动画
             if(s) {
+                //动画打开
                 let _loadDiv = document.createElement('div');
                 _loadDiv.innerHTML = `<i><span></span><span></span><span></span><span></span><span></span></i>`;
                 _loadDiv.classList.add("loading");
@@ -161,6 +165,7 @@
                 body.append(_loadDiv);
             } 
             else {       
+                //动画关闭
                 let _loadDiv = document.getElementById("loading"); 
                 if (_loadDiv) {
                     _loadDiv.remove();
@@ -182,6 +187,7 @@
             setTimeout(function(){_hitDiv.remove();},3000);
         },
         Guid(){
+            //生成32位guid
             return 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
                 var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
                 return v.toString(16);
@@ -224,10 +230,16 @@
         },
         Log(){
             //日志输入
-            let debug = this.config && this.config.debug!=undefined ? this.config.debug :  true;
-            console.log = (function (oriLogFunc) {
+            console.log("%c欢迎使用Lui(https://gitee.com/leolui/lui)","color:#fff;font-size:16px;font-family:微软雅黑;font-weight:bold;background:#4fc08d;line-height:2;padding:0 18px;border-radius:3px;");
+            let debug = !this.config || this.config.debug!=false;
+            console.log = (function (oriLogFunc) {                
                 return function () {
-                    debug && oriLogFunc.apply(this, arguments);
+                    if(arguments[0] == "lui-log"){
+                        let arr = Array.from(arguments).splice(1);
+                        oriLogFunc.apply(this, arr);
+                    }
+                    else
+                        debug && oriLogFunc.apply(this, arguments);
                 }
             })(console.log);
         },
@@ -422,7 +434,7 @@
             //实例scroll
             this.InitScroll(); 
 
-            //this.Log();
+            this.Log();
 
             //lui依赖vue组件
             this.VueComponent();

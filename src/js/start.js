@@ -16,6 +16,8 @@ NS.Component([
     "../component/luiTable",
     "../component/luiTree",
     "../component/luiLayer",
+    "../component/luiStar",
+    "../component/luiColor"
 ]);
 
 const routes = NS.Import("routes");

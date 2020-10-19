@@ -70,16 +70,16 @@
     <div class="div-img-added" v-for="(img,ii) in imgArr" :key="ii">
         <img :src="img.src" alt="">
         <div class="div-img-added-ope">
-            <a class="a-added-ope iconfont icon-zoom-out" @click="imgOpe(1,$event)"></a>
-            <a class="a-added-ope iconfont icon-switch">
+            <a class="a-added-ope icon i-zoom-out" @click="imgOpe(1,$event)"></a>
+            <a class="a-added-ope icon i-switch">
                 <input type="file" class="file-input-transparent" accept="image/*" @change="addImg($event,ii)">
             </a>
-            <a class="a-added-ope  iconfont icon-del" @click="imgOpe(3,ii)"></a>
+            <a class="a-added-ope  icon i-del" @click="imgOpe(3,ii)"></a>
         </div>
     </div>
     <a class="a-img-add" v-if="length==0||imgArr.length<length">
         <input type="file" class="file-input-transparent" accept="image/*" :multiple="length==1?false:true" @change="addImg($event)">
-        <i class="a-file-add-icon iconfont icon-add"></i>
+        <i class="a-file-add-icon icon i-add"></i>
     </a>
 </div>
 </template>

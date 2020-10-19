@@ -44,7 +44,7 @@
 <template>
 <div class="lui-tree-item">
     <div class="item-self">
-        <a :class="['iconfont',open?'icon-minus':'icon-add']" @click="open=!open" v-if="data.child&&data.child.length>0"></a>
+        <a :class="['icon',open?'i-minus':'i-add']" @click="open=!open" v-if="data.child&&data.child.length>0"></a>
         <a :class="['checkbox',{checked:checkArr.indexOf(data.id+'')>=0}]" v-if="check" @click="checkClick(data.id)"></a>
         <span>{{data.name}}</span>
     </div>

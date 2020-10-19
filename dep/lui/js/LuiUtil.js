@@ -16,6 +16,13 @@
             }
             if (num) { result = num + result; }
             return result;
+        },
+        toScale(define,value){
+            if(!Array.isArray(define) || !Array.isArray(value))
+                return 0;
+            let dp = (this - define[0]) / [define[1] - define[0]],
+                vp = (value[1]-value[0]) * dp;
+            return value[0] + vp;
         }
     });
 
