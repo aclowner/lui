@@ -74,6 +74,10 @@
 
 .lui-select ._scroll ._bar {width: .05rem;}
 .lui-select ._scroll ._bar:hover, .lui-select ._scroll ._bar.bar-press{width: .07rem;}
+
+.lui-table ._scroll ._bar{width: .07rem;}
+.lui-table ._scroll ._bar:hover, .lui-table ._scroll ._bar.bar-press{width: .08rem;}
+
 /* scroll ---- end */
 
 
@@ -422,9 +426,6 @@ a.radio.checked:after{
 }
 .flex-none .td, .flex-none .th{
     flex: unset;
-}
-.lui-table ._scroll ._bar{
-    width: 6px;
 }
 /* table-tr 更新动画 */
 .table-tr-enter{

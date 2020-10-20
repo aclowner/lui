@@ -25,12 +25,12 @@
     <h3><a >修饰输入</a></h3>
     <ul>
         <li>
-            <p>搜索</p>
+            <p>图标</p>
             <p>
-                <lui-input-icon icon="icon-search"><input type="text" v-model="search"></lui-input-icon>
+                <lui-input-icon icon="i-search"><input type="text" v-model="search"></lui-input-icon>
             </p>
             <p>
-                <lui-input-icon icon="icon-search" position="left"><input type="text"></lui-input-icon>
+                <lui-input-icon icon="i-lock" position="left"><input type="text"></lui-input-icon>
             </p>
         </li>
         <li>

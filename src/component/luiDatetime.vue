@@ -5,6 +5,10 @@
     position: relative;
     font-size: .16rem;
 }
+.lui-datetime input{
+    padding-right: .52rem;
+    background: var(--input-bg);
+}
 .lui-datetime:before{
     content: "";
     position: absolute;

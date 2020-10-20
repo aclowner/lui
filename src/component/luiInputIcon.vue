@@ -4,23 +4,24 @@
     position: relative;
     width: 100%;
 }
-.iconfont{
+.i-icon{
     position: absolute;    
     font-size: .2rem;
     top: 50%;
     transform: translateY(-50%);
-    right: .1rem;
 }
-.icon-pos-left .iconfont{
+.icon-pos-left .i-icon{
     left: .1rem;
-    right: unset;
+}
+.icon-pos-right .i-icon{
+    right: .1rem;
 }
 </style>
 
 <template>
 <div :class="['lui-input-icon','icon-pos-'+position]">   
     <slot></slot>
-    <i v-if="icon" :class="['icon',icon]" ></i>
+    <i v-if="icon" :class="['i-icon','icon',icon]" ></i>
 </div>
 </template>
 

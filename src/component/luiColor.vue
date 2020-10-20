@@ -5,14 +5,17 @@
     position: relative;
     position: relative;
 }
-.lui-color .icon{
+.lui-color input{
+    background: var(--input-bg);
+}
+.lui-color .i-color{
     pointer-events: none;
     position: absolute;
     right: .1rem;
     top: 50%;
     transform: translateY(-50%);
-    font-size: .20rem;
-    color: var(--active-color);
+    width: .2rem;
+    height: .2rem;
 }
 .color-select{
     position: absolute;
@@ -124,7 +127,7 @@
 <template>
 <div class="lui-color">
     <input type="text" @focus="inputFocus" @blur="inputBlur" @mousedown="inputMD" readonly v-model="val">
-    <i class="icon i-modular"></i>
+    <i class="i-color" :style="{background:'rgb('+rgb+')'}"></i>
     <div class="color-select" v-show="show" tabindex="99" @blur="colorBlur" @mousedown="colorMD">
         <div class="color-selector">
             <div class="color-area" @mousedown="areaMD($event)">
