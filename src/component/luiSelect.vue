@@ -1,9 +1,5 @@
 <component>
 <style>   
-.lui-date{
-    position: relative;
-    width: 100%;
-}
 .lui-select{
     width: 100%;
     position: relative;
@@ -43,6 +39,7 @@
 }
 .lui-select input{
     padding-right: .52rem;
+    background: var(--input-bg);
 }
 .lui-select:after{
     content: "";
@@ -62,9 +59,6 @@
 }
 .lui-select li.active{
     color: var(--active-color);
-}
-.lui-select ._scroll ._bar {
-    width: 6px;
 }
 </style>
 
@@ -146,10 +140,11 @@ function luiSelect(){
                 let val = nv || this.value || "";
                 if(this.optionArr.length==0 || val=="" || val==undefined){
                     this.text = ""; 
+                    this.textTag = "";
                     return;
                 }                             
                 let activeOption = this.optionArr.find(o=>o[0]==val);
-                this.text = activeOption[1];                
+                this.text = activeOption[1];        
             }
         },	
         watch:{
@@ -159,26 +154,6 @@ function luiSelect(){
                     if(JSON.stringify(nv) == JSON.stringify(ov))   
                         return;         
                     this.optionArr = Lui.TransListData(nv,this.index);
-                    // if(!nv || !Array.isArray(nv))
-                    //     this.optionArr = [];
-                    // else{
-                    //     this.optionArr = nv.map((o,i)=>{
-                    //         //为了减少参数，将index作了特殊使用，当需要使用的值为索引时，index为>=0的整数，获取的值为选项索引+index；当index === -1时，表示值为名称
-                    //         let isName = this.index === -1;
-                    //         //选项数据为错误数据，则添加错误选项 -2
-                    //         if(!o)
-                    //             return [-2,""];
-                    //         //选项为对象  则取id/name或者Id/Name，没有id/Id 则为错误数据
-                    //         if(o.constructor === Object)
-                    //             return [isName?(o.name||o.Name||-2):(o.id||o.Id||-2),o.name||o.Name];
-                    //         //选项为数组  只支持[value,name] --暂未作详细判断
-                    //         else if(o.constructor == Array)
-                    //             return o.length==2 ? o : [-2,""];
-                    //         //简单值类型  则取索引作为值
-                    //         else
-                    //             return [isName?o:(i+this.index+""),o];
-                    //     });
-                    // }
                     this.optionArrShow = this.optionArr;
                     this.setText();
                 },
@@ -196,6 +171,7 @@ function luiSelect(){
             },
             text(nv,ov){
                 if(this.search){
+                    console.log(this.textTag,nv);
                     if(this.textTag!="st" && nv)
                         this.optionArrShow = this.optionArr.filter(o=>o[1].indexOf(nv)>=0);
                     else

@@ -11,6 +11,9 @@
             <p>
                 <input type="text">
             </p>
+            <p>
+                <input type="text" readonly value="内容只读">
+            </p>
         </li>
         <li>
             <p>textarea</p>

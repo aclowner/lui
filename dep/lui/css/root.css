@@ -12,14 +12,16 @@
     --yellow: #f4d338;
     --orange: #ff6d4b;
 
+    --input-bg: transparent;
     --input-height: .4rem;
     --input-border-color: #ced3da;
     --input-border:solid 1px var(--input-border-color);
     --input-active-color: #3981e3;
     --input-color:#485778;
+    --input-bg-readonly: #fcfcfc;
 
-    --scroll-bar: #d9d9d9;
-    --scroll-bar-hover: #ccc;
+    --scroll-bar: #dfdfdf;
+    --scroll-bar-hover: #cfcfcf;
     --scroll-bar-press: #c0c0c0;
 
     --select-bg:#fff; 

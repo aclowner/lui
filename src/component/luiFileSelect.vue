@@ -80,36 +80,35 @@ function luiFileSelect(){
                 }
             },
             getFileData(){
-                if(this.fileArr.length==0)
-                    return false;
-                let formData = new FormData();
+                let arr = this.fileArr,
+                    formData = null;
+                if(arr.length==0)
+                    return {data:formData,str:""};
                 let farr = [], //数据库存储字段字符串拼接
                     ts = [],  //文件类型数组
                     us = [];  //文件guid数组
-                for(let f=0;f<this.files.length;f++){
-                    let fitem = this.files[f];
+                for(let i=0;i<arr.length;i++){
+                    let fitem = this.files[i];
                     if(fitem.file){
-                        formData.append('FileData',fitem.File);   //添加FormData文件 
+                        !formData && (formData = new FormData())
+                        formData.append('files',fitem.File);   //添加FormData文件 
                         ts.push(fitem.Type);
                         us.push(fitem.Name); 
                     }
                     farr.push(this.fileStrJoin(fitem));   //数据库保存数据所用的拼接字符串
                 }
-                formData.append('Type', ts.join(","));  //赋值文件类型
-                formData.append('UName', us.join(","));  //赋值文件guid
-                return {formData:formData,dataStr:farr.join("*")};
+                formData.append('types', ts.join(","));  //赋值文件类型
+                formData.append('unames', us.join(","));  //赋值文件guid
+                return {data:formData,str:farr.join("*")};
             },
             fileStrSplit(str){
-                let res = [],
-                    farr = str.split("*");
-                for(let f of farr){
+                let farr = str.split("*");
+                arr.map(f=>{
                     let arr = f.split("/");
-                    let fo = {type:arr[2],name:arr[0],uname:arr[1],size:arr[3],edit:1};
-                    if(arr[0]==1)
-                        fo.src = file+arr[2];
+                    let fo = {type:+arr[0],name:arr[1],uname:arr[2],size:arr[3]};
                     res.push(fo);
-                }
-                return res;
+                });
+                return arr;
             },
             fileStrJoin(fitem){
                 return fitem.type+"/"+fitem.name+"/"+fitem.uname+"/"+fitem.size;

@@ -25,7 +25,7 @@
             </p>
         </li>
         <li>
-            <p>参数index</p>
+            <p>参数index(搜索)</p>
             <p>
                 <lui-select :list="list4" :index="-1" :search="true" v-model="obj.s4"></lui-select>
             </p>

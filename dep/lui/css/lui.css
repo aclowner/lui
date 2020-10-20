@@ -66,11 +66,14 @@
 
 ._scroll>._bar{position: absolute;}
 
-._scroll>._bar._v{width: .08rem;height: 1rem;right: 0;background: var(--scroll-bar);top: 0;border-radius: .04rem;}
+._scroll>._bar._v{width: .08rem;height: 1rem;right: 1px;background: var(--scroll-bar);top: 0;border-radius: .04rem;}
 
-._scroll>._bar:hover{background: var(--scroll-bar-hover);}
-._scroll>._bar.bar-press{background: var(--scroll-bar-press);}
+._scroll>._bar:hover{background: var(--scroll-bar-hover);width: .1rem;}
+._scroll>._bar.bar-press{background: var(--scroll-bar-press);width: .1rem;}
 .user-unsel{user-select:none;}
+
+.lui-select ._scroll ._bar {width: .05rem;}
+.lui-select ._scroll ._bar:hover, .lui-select ._scroll ._bar.bar-press{width: .07rem;}
 /* scroll ---- end */
 
 
@@ -227,6 +230,7 @@ input, textarea{
     border: var(--input-border);    
     color: var(--input-color);
     width: 100%;    
+    background: var(--input-bg);
 }
 input{
     height: var(--input-height);
@@ -246,6 +250,9 @@ textarea{
 }
 :-moz-placeholder { /* Firefox 18- */ 
     color: var(--placeholder-color);
+}
+input[readonly]{
+    background: var(--input-bg-readonly);
 }
 
 /* input-icon */
